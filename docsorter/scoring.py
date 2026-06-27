@@ -6,46 +6,17 @@ from .keyword_engine import KeywordRule, NegativeRule
 from .normalize import normalize_text
 from .regex_utils import has_vietnamese_diacritics
 
+# MỞ RỘNG: Bổ sung thêm các từ ngữ cảnh giúp nhận diện chính xác alias ngắn trong THPT
 _SHORT_ALIAS_CONTEXT_WORDS = {
-    "bai",
-    "bo",
-    "chuyen",
-    "de",
-    "decuong",
-    "giao",
-    "giaoan",
-    "hk",
-    "hki",
-    "hkii",
-    "hoc",
-    "kiem",
-    "ki",
-    "ky",
-    "lop",
-    "mon",
-    "on",
-    "tap",
-    "thi",
-    "thpt",
-    "tn",
-    "tot",
-    "tra",
+    "bai", "bo", "chuyen", "de", "decuong", "giao", "giaoan", 
+    "hk", "hki", "hkii", "hoc", "kiem", "ki", "ky", "lop", "mon", 
+    "on", "tap", "thi", "thpt", "tn", "tot", "tra",
+    "khao", "sat", "tuyen", "sinh", "chuyen", "boiduong", "hsg" # Thêm từ khóa ngữ cảnh thi HSG, Khảo sát
 }
 
 _GRADE_TOKENS = {"10", "11", "12"}
 _RISKY_SINGLE_TOKENS = {
-    "ai",
-    "anh",
-    "hoa",
-    "ly",
-    "li",
-    "su",
-    "ta",
-    "tin",
-    "toan",
-    "tuong",
-    "van",
-    "vo",
+    "ai", "anh", "hoa", "ly", "li", "su", "ta", "tin", "toan", "tuong", "van", "vo",
 }
 
 
@@ -205,18 +176,61 @@ def score_document(
     body_multiplier: float,
     filename_alias_rules: list[KeywordRule] | None = None,
 ) -> ScoreResult:
+    """
+    Tính toán điểm tài liệu và thực thi bộ lọc gạt giò (Veto) 
+    để loại bỏ các văn bản hành chính/phi môn học ra khỏi danh mục môn học.
+    """
     scores: dict[str, SubjectScore] = {}
+    
+    # 1. Chấm điểm từ khóa môn học
     _score_rules(keyword_rules, filename_text, "filename", filename_multiplier, scores)
     if filename_alias_rules:
         _score_filename_alias_rules(filename_alias_rules, filename_text, filename_multiplier, scores)
     _score_rules(keyword_rules, body_text, "body", body_multiplier, scores)
 
+    # 2. Chấm điểm từ khóa tiêu cực chặn (Negative Rules)
     filename_negative, filename_evidence = _score_negative_rules(
         negative_rules, filename_text, "filename", filename_multiplier
     )
     body_negative, body_evidence = _score_negative_rules(negative_rules, body_text, "body", body_multiplier)
+    
+    total_negative_score = filename_negative + body_negative
+    total_negative_evidence = filename_evidence + body_evidence
+
+    # =========================================================================
+    # 🔥 CẢI TIẾN CỐT LÕI: BỘ LỌC CẢN PHÁN QUYẾT (VETO MECHANISM)
+    # =========================================================================
+    
+    # Kiểm tra xem tài liệu có dính líu đến các từ khóa hành chính tối cao không
+    # Ví dụ: nếu trong file hành chính có từ khóa nặng >= 40 (như Hợp đồng, Phiếu đăng ký, Giấy chứng nhận)
+    is_strong_administrative = any(ev.score >= 40.0 for ev in total_negative_evidence)
+
+    if is_strong_administrative:
+        # Tạo điểm tối cao cho nhãn Không phải môn học để gạt giò hoàn toàn các môn khác
+        admin_score = SubjectScore(subject="_Khong_phai_mon_hoc", score=999.0)
+        admin_score.evidence = total_negative_evidence
+        return ScoreResult(
+            scores={"_Khong_phai_mon_hoc": admin_score},
+            negative_score=total_negative_score,
+            negative_evidence=total_negative_evidence
+        )
+
+    # Nếu dính từ khóa tiêu cực thể nhẹ (ví dụ danh sách niêm yết, thông báo tổng hợp...)
+    # Tiến hành trừ phạt điểm tuyến tính của các môn học hiện tại để tránh ăn may điểm thấp
+    if total_negative_score > 0 and scores:
+        filtered_scores: dict[str, SubjectScore] = {}
+        for subj, subj_score in scores.items():
+            # Khấu trừ điểm phạt trực tiếp vào tổng điểm môn học
+            adjusted_score = subj_score.score - total_negative_score
+            
+            # Nếu sau khi trừ, điểm vẫn lớn hơn ngưỡng an toàn (ví dụ: 10.0), ta mới giữ lại
+            if adjusted_score > 10.0:
+                subj_score.score = adjusted_score
+                filtered_scores[subj] = subj_score
+        scores = filtered_scores
+
     return ScoreResult(
         scores=scores,
-        negative_score=filename_negative + body_negative,
-        negative_evidence=filename_evidence + body_evidence,
+        negative_score=total_negative_score,
+        negative_evidence=total_negative_evidence,
     )

@@ -130,9 +130,30 @@ def main() -> int:
     if not input_dir.exists() or not input_dir.is_dir():
         parser.error(f"Input directory does not exist: {input_dir}")
 
+    # TỐI ƯU HIỂN THỊ: Kiểm tra và thông báo trạng thái phần cứng lúc khởi động app
+    if config.ocr_backend != "none":
+        print(f"[*] OCR Backend đang chọn: {config.ocr_backend.upper()}")
+        try:
+            if config.ocr_backend == "easyocr":
+                import torch
+                if torch.cuda.is_available():
+                    print(f"[+] Đã kích hoạt tăng tốc phần cứng GPU: {torch.cuda.get_device_name(0)}")
+                else:
+                    print("[-] CẢNH BÁO: Không tìm thấy GPU CUDA thích hợp. Hệ thống sẽ chạy chậm bằng CPU.")
+            elif config.ocr_backend == "paddleocr":
+                import paddle
+                if paddle.is_compiled_with_cuda() and paddle.device.cuda.device_count() > 0:
+                    print("[+] Đã kích hoạt tăng tốc phần cứng GPU thành công cho PaddleOCR.")
+                else:
+                    print("[-] CẢNH BÁO: PaddlePaddle chưa kích hoạt CUDA. Hệ thống sẽ chạy chậm bằng CPU.")
+        except ImportError:
+            print("[!] Thư viện OCR chưa được cài đặt hoàn chỉnh.")
+
     classifier = DocumentClassifier(config)
     rows = []
     files = discover_files(input_dir, config, exclude_roots=(output_dir,))
+    
+    # Bắt đầu vòng lặp quét qua danh sách file
     for path in files:
         classification = classifier.classify(path)
         move_result = place_file(classification, output_dir, config)
