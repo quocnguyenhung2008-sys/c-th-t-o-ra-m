@@ -1557,6 +1557,58 @@
     {
       "keyword": "cảm ứng ở sinh vật",
       "weight": 36
+    },
+    {
+      "keyword": "cảm ứng ở thực vật",
+      "weight": 48
+    },
+    {
+      "keyword": "cảm ứng ở động vật",
+      "weight": 48
+    },
+    {
+      "keyword": "hướng động",
+      "weight": 32
+    },
+    {
+      "keyword": "ứng động",
+      "weight": 32
+    },
+    {
+      "keyword": "tập tính ở động vật",
+      "weight": 48
+    },
+    {
+      "keyword": "tập tính bẩm sinh",
+      "weight": 34
+    },
+    {
+      "keyword": "tập tính học được",
+      "weight": 34
+    },
+    {
+      "keyword": "sinh trưởng và phát triển ở thực vật",
+      "weight": 52
+    },
+    {
+      "keyword": "sinh trưởng và phát triển ở sinh vật",
+      "weight": 52
+    },
+    {
+      "keyword": "mô phân sinh",
+      "weight": 38
+    },
+    {
+      "keyword": "phân hóa tế bào",
+      "weight": 34
+    },
+    {
+      "keyword": "hệ thần kinh dạng lưới",
+      "weight": 36
+    },
+    {
+      "keyword": "hệ thần kinh dạng ống",
+      "weight": 36
     }
   ],
   "Ngu_van": [
@@ -1911,6 +1963,26 @@
     {
       "keyword": "môn văn",
       "weight": 48
+    },
+    {
+      "keyword": "toàn cầu hóa và hội nhập quốc tế",
+      "weight": 52
+    },
+    {
+      "keyword": "thời cơ và thách thức",
+      "weight": 36
+    },
+    {
+      "keyword": "nghị luận về vấn đề xã hội",
+      "weight": 42
+    },
+    {
+      "keyword": "văn bản chính luận",
+      "weight": 40
+    },
+    {
+      "keyword": "tạp chí cộng sản",
+      "weight": 32
     }
   ],
   "Lich_su": [
@@ -3103,6 +3175,38 @@
     {
       "keyword": "môn tin",
       "weight": 48
+    },
+    {
+      "keyword": "khối không chuyên tin",
+      "weight": 64
+    },
+    {
+      "keyword": "olp solution",
+      "weight": 54
+    },
+    {
+      "keyword": "lời giải olympic tin học",
+      "weight": 58
+    },
+    {
+      "keyword": "prefix sum",
+      "weight": 44
+    },
+    {
+      "keyword": "mảng cộng dồn",
+      "weight": 44
+    },
+    {
+      "keyword": "long double",
+      "weight": 38
+    },
+    {
+      "keyword": "tràn số",
+      "weight": 36
+    },
+    {
+      "keyword": "bài lập trình",
+      "weight": 42
     }
   ],
   "GDCD": [

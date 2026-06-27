@@ -14,6 +14,7 @@ Cong cu phan loai file `.docx` va `.pdf` theo mon hoc THPT Viet Nam bang tu khoa
 - Alias ngan trong filename chi duoc tinh khi dung nhu ten mon ro rang. Vi du `Pham Van Trong.pdf` khong bi nham thanh `Ngu_van`, con `Van 12.pdf` van duoc nhan dien.
 - PDF extraction nhieu lop: `pdfplumber` -> `PyMuPDF` -> `pypdf`.
 - OCR tuy chon cho PDF scan bang EasyOCR hoac PaddleOCR.
+- PDF roi vao `_Khong_xac_dinh` se duoc OCR thu lai mot lan neu da chon `--ocr-backend`.
 - Tu khoa co trong so, match bang regex, ho tro dau gach noi, dau cau, nhieu khoang trang va van ban khong dau.
 - Matcher uu tien tieng Viet co dau khi van ban co dau, chi fallback khong dau khi an toan. Cac tu don de nhieu nhu `van`, `ly`, `hoa`, `tin`, `su`, `tuong` bi chan neu thieu ngu canh.
 - File khong ro mon hoc vao `_Khong_xac_dinh`.
@@ -65,6 +66,12 @@ Bat OCR cho PDF scan:
 
 ```bash
 python main.py "/duong/dan/tai-lieu" "/duong/dan/da-phan-loai" --copy --enable-ocr --ocr-backend easyocr
+```
+
+Chi OCR lai cac PDF chua xac dinh duoc sau luot doc text thuong:
+
+```bash
+python main.py "/duong/dan/tai-lieu" "/duong/dan/da-phan-loai" --copy --ocr-backend easyocr
 ```
 
 Che do uu tien do chinh xac hon toc do, doc nhieu trang PDF hon va OCR cac trang da lay mau:

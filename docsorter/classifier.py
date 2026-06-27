@@ -120,6 +120,10 @@ class DocumentClassifier:
             filename_alias_rules=self.alias_rules,
         )
         status, label, top_score, runner_up, evidence = self._decide(score_result)
+        if self._should_retry_unknown_pdf_with_ocr(path, status, pdf_result):
+            retry = self._classify_pdf_with_ocr_retry(path)
+            if retry is not None:
+                return retry
         return DocumentClassification(
             path=path,
             status=status,
@@ -132,6 +136,56 @@ class DocumentClassifier:
             extraction_engine=pdf_result.engine if pdf_result else "docx",
             ocr_used=pdf_result.ocr_used if pdf_result else False,
             error="; ".join(pdf_result.errors) if pdf_result and pdf_result.errors else "",
+        )
+
+    def _should_retry_unknown_pdf_with_ocr(
+        self,
+        path: Path,
+        status: ClassificationStatus,
+        pdf_result: PdfExtractionResult | None,
+    ) -> bool:
+        return (
+            self.config.retry_unknown_with_ocr
+            and path.suffix.lower() == ".pdf"
+            and status == ClassificationStatus.UNKNOWN
+            and pdf_result is not None
+            and not pdf_result.ocr_used
+            and self.config.ocr_backend != "none"
+        )
+
+    def _classify_pdf_with_ocr_retry(self, path: Path) -> DocumentClassification | None:
+        pdf_result = extract_pdf_text(
+            path,
+            max_pages=self.config.max_pdf_pages,
+            min_chars_before_ocr=self.config.min_extracted_chars_before_ocr,
+            enable_ocr=True,
+            always_ocr_pdf=True,
+            ocr_backend=self.config.ocr_backend,
+        )
+        score_result = score_document(
+            filename_text=path.stem,
+            body_text=pdf_result.text,
+            keyword_rules=self.keyword_rules,
+            negative_rules=self.negative_rules,
+            filename_multiplier=self.config.filename_weight_multiplier,
+            body_multiplier=self.config.body_weight_multiplier,
+            filename_alias_rules=self.alias_rules,
+        )
+        status, label, top_score, runner_up, evidence = self._decide(score_result)
+        if status == ClassificationStatus.UNKNOWN:
+            return None
+        return DocumentClassification(
+            path=path,
+            status=status,
+            target_label=label,
+            score=top_score,
+            runner_up_score=runner_up,
+            negative_score=score_result.negative_score,
+            evidence=evidence,
+            pages_sampled=pdf_result.pages_sampled,
+            extraction_engine=f"{pdf_result.engine}:retry_unknown",
+            ocr_used=pdf_result.ocr_used,
+            error="; ".join(pdf_result.errors) if pdf_result.errors else "",
         )
 
     def _extract_text(self, path: Path) -> tuple[str | None, PdfExtractionResult | None]:

@@ -38,9 +38,11 @@ _RISKY_SINGLE_TOKENS = {
     "anh",
     "hoa",
     "ly",
+    "li",
     "su",
     "ta",
     "tin",
+    "toan",
     "tuong",
     "van",
     "vo",
@@ -80,12 +82,11 @@ def _score_rules(
     text_has_diacritics = has_vietnamese_diacritics(text_forms.normalized)
     accentless_tokens = text_forms.accentless.split()
     for rule in rules:
-        if (
-            source == "filename"
-            and _is_unsafe_short_alias(rule.keyword)
-            and not _short_alias_allowed(accentless_tokens, rule.keyword)
-        ):
-            continue
+        if _is_unsafe_short_alias(rule.keyword):
+            if source == "filename" and not _short_alias_allowed(accentless_tokens, rule.keyword):
+                continue
+            if source == "body":
+                continue
         matches = _find_rule_matches(rule, text_forms.normalized, text_forms.accentless, text_has_diacritics)
         for match_source, match_count in matches:
             if not match_count:

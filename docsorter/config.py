@@ -27,6 +27,7 @@ class ClassificationConfig:
     min_extracted_chars_before_ocr: int = 250
     enable_ocr: bool = False
     always_ocr_pdf: bool = False
+    retry_unknown_with_ocr: bool = True
     ocr_backend: str = "none"
     dry_run: bool = False
     copy: bool = False

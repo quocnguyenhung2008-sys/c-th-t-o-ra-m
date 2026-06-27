@@ -56,6 +56,11 @@ def build_parser() -> argparse.ArgumentParser:
         default="none",
         help="Backend OCR tuy chon. Mac dinh tat de khong cai them goi nang.",
     )
+    parser.add_argument(
+        "--no-ocr-retry-unknown",
+        action="store_true",
+        help="Khong OCR lai PDF roi vao _Khong_xac_dinh. Mac dinh se thu lai neu da chon OCR backend.",
+    )
     parser.add_argument("--keywords", type=Path, default=None, help="Duong dan keywords.json tuy chinh.")
     parser.add_argument("--negative-keywords", type=Path, default=None, help="Duong dan negative_keywords.json tuy chinh.")
     parser.add_argument("--aliases", type=Path, default=None, help="Duong dan aliases.json tuy chinh cho ten file.")
@@ -108,6 +113,7 @@ def config_from_args(args: argparse.Namespace) -> ClassificationConfig:
         filename_fast_path_score=filename_fast_path_score,
         enable_ocr=enable_ocr,
         always_ocr_pdf=always_ocr_pdf,
+        retry_unknown_with_ocr=not args.no_ocr_retry_unknown,
         ocr_backend=args.ocr_backend,
         excluded_subjects=excluded_subjects,
         report_name=args.report_name,

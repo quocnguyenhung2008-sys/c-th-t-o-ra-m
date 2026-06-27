@@ -2,6 +2,7 @@ from pathlib import Path
 
 from docsorter.config import ClassificationConfig
 from docsorter.classifier import DocumentClassifier, ClassificationStatus
+from docsorter.pdf_engine import PdfExtractionResult
 from docsorter.normalize import normalize_text
 from docsorter.sampling import sampled_page_indexes
 from docsorter.scoring import score_document
@@ -93,6 +94,60 @@ def test_accented_tuong_still_matches_ngu_van() -> None:
         body_multiplier=1.0,
     )
     assert result.scores["Ngu_van"].score >= 40
+
+
+def test_risky_single_subject_words_do_not_match_body_noise() -> None:
+    rules = load_keyword_rules(ROOT / "data" / "keywords.json")
+    negative = load_negative_rules(ROOT / "data" / "negative_keywords.json")
+    result = score_document(
+        filename_text="",
+        body_text="Qua trinh hien dai hoa. Van ban phap ly nay su dung phep tinh toan dien tu.",
+        keyword_rules=rules,
+        negative_rules=negative,
+        filename_multiplier=2.5,
+        body_multiplier=1.0,
+    )
+    for subject in ("Hoa_hoc", "Ngu_van", "Lich_su", "Toan"):
+        assert subject not in result.scores
+
+
+def test_administrative_samples_score_as_negative_subjects() -> None:
+    rules = load_keyword_rules(ROOT / "data" / "keywords.json")
+    negative = load_negative_rules(ROOT / "data" / "negative_keywords.json")
+    result = score_document(
+        filename_text="2 DS niem yet THPT hoan chinh 2023 2024 Ct",
+        body_text="MON TOAN TT SBD ngay sinh hs truong ghi chu MON NGU VAN MON TIENG ANH",
+        keyword_rules=rules,
+        negative_rules=negative,
+        filename_multiplier=2.5,
+        body_multiplier=1.0,
+    )
+    top_subject = max((score.score for score in result.scores.values()), default=0.0)
+    assert result.negative_score > top_subject
+
+
+def test_unknown_pdf_is_retried_with_ocr(monkeypatch, tmp_path: Path) -> None:
+    calls = []
+
+    def fake_extract_pdf_text(path, **kwargs):
+        calls.append(kwargs)
+        if len(calls) == 1:
+            return PdfExtractionResult(text="", pages_sampled=[0], engine="none", ocr_used=False, errors=[])
+        return PdfExtractionResult(text="Bai tap dao ham va nguyen ham", pages_sampled=[0], engine="easyocr", ocr_used=True, errors=[])
+
+    import docsorter.classifier as classifier_module
+
+    monkeypatch.setattr(classifier_module, "extract_pdf_text", fake_extract_pdf_text)
+    classifier = DocumentClassifier(ClassificationConfig(ocr_backend="easyocr"))
+    result = classifier.classify(tmp_path / "scan.pdf")
+
+    assert len(calls) == 2
+    assert calls[1]["enable_ocr"] is True
+    assert calls[1]["always_ocr_pdf"] is True
+    assert result.status == ClassificationStatus.SUBJECT
+    assert result.target_label == "Toan"
+    assert result.ocr_used is True
+    assert result.extraction_engine == "easyocr:retry_unknown"
 
 
 def test_prevoi_and_vact_filename_regressions() -> None:
