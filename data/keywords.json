@@ -1,0 +1,3190 @@
+{
+  "Toan": [
+    {
+      "keyword": "toan hoc",
+      "weight": 14
+    },
+    {
+      "keyword": "mon toan",
+      "weight": 16
+    },
+    {
+      "keyword": "dai so",
+      "weight": 10
+    },
+    {
+      "keyword": "hinh hoc",
+      "weight": 10
+    },
+    {
+      "keyword": "giai tich",
+      "weight": 12
+    },
+    {
+      "keyword": "dao ham",
+      "weight": 14
+    },
+    {
+      "keyword": "nguyen ham",
+      "weight": 14
+    },
+    {
+      "keyword": "tich phan",
+      "weight": 14
+    },
+    {
+      "keyword": "vi phan",
+      "weight": 10
+    },
+    {
+      "keyword": "gioi han ham so",
+      "weight": 13
+    },
+    {
+      "keyword": "ham so lien tuc",
+      "weight": 12
+    },
+    {
+      "keyword": "dong bien nghich bien",
+      "weight": 13
+    },
+    {
+      "keyword": "cuc tri ham so",
+      "weight": 13
+    },
+    {
+      "keyword": "khao sat ham so",
+      "weight": 13
+    },
+    {
+      "keyword": "tap xac dinh",
+      "weight": 9
+    },
+    {
+      "keyword": "ham so",
+      "weight": 9
+    },
+    {
+      "keyword": "phuong trinh bac",
+      "weight": 10
+    },
+    {
+      "keyword": "bat phuong trinh",
+      "weight": 11
+    },
+    {
+      "keyword": "he phuong trinh",
+      "weight": 10
+    },
+    {
+      "keyword": "bat dang thuc",
+      "weight": 12
+    },
+    {
+      "keyword": "so phuc",
+      "weight": 12
+    },
+    {
+      "keyword": "mo dun so phuc",
+      "weight": 12
+    },
+    {
+      "keyword": "so nguyen to",
+      "weight": 9
+    },
+    {
+      "keyword": "ham luong giac",
+      "weight": 12
+    },
+    {
+      "keyword": "phuong trinh luong giac",
+      "weight": 13
+    },
+    {
+      "keyword": "cong thuc luong giac",
+      "weight": 12
+    },
+    {
+      "keyword": "logarit",
+      "weight": 12
+    },
+    {
+      "keyword": "ham mu",
+      "weight": 10
+    },
+    {
+      "keyword": "ham logarit",
+      "weight": 13
+    },
+    {
+      "keyword": "hinh lang tru",
+      "weight": 12
+    },
+    {
+      "keyword": "hinh chop",
+      "weight": 12
+    },
+    {
+      "keyword": "hinh cau",
+      "weight": 10
+    },
+    {
+      "keyword": "hinh tru",
+      "weight": 10
+    },
+    {
+      "keyword": "hinh non",
+      "weight": 10
+    },
+    {
+      "keyword": "the tich khoi",
+      "weight": 12
+    },
+    {
+      "keyword": "dien tich xung quanh",
+      "weight": 11
+    },
+    {
+      "keyword": "duong tron ngoai tiep",
+      "weight": 12
+    },
+    {
+      "keyword": "vecto",
+      "weight": 8
+    },
+    {
+      "keyword": "toa do diem",
+      "weight": 10
+    },
+    {
+      "keyword": "oxyz",
+      "weight": 14
+    },
+    {
+      "keyword": "phuong trinh duong thang",
+      "weight": 12
+    },
+    {
+      "keyword": "phuong trinh mat phang",
+      "weight": 12
+    },
+    {
+      "keyword": "xac suat",
+      "weight": 10
+    },
+    {
+      "keyword": "to hop chap",
+      "weight": 12
+    },
+    {
+      "keyword": "chinh hop",
+      "weight": 12
+    },
+    {
+      "keyword": "nhi thuc newton",
+      "weight": 13
+    },
+    {
+      "keyword": "cap so cong",
+      "weight": 11
+    },
+    {
+      "keyword": "cap so nhan",
+      "weight": 11
+    },
+    {
+      "keyword": "day so",
+      "weight": 9
+    },
+    {
+      "keyword": "quy nap toan hoc",
+      "weight": 13
+    },
+    {
+      "keyword": "ma tran",
+      "weight": 9
+    },
+    {
+      "keyword": "dinh thuc",
+      "weight": 9
+    },
+    {
+      "keyword": "he cramer",
+      "weight": 13
+    },
+    {
+      "keyword": "thong ke",
+      "weight": 10
+    },
+    {
+      "keyword": "so trung binh",
+      "weight": 10
+    },
+    {
+      "keyword": "trung vi",
+      "weight": 10
+    },
+    {
+      "keyword": "tu phan vi",
+      "weight": 11
+    },
+    {
+      "keyword": "phuong sai",
+      "weight": 11
+    },
+    {
+      "keyword": "do lech chuan",
+      "weight": 11
+    },
+    {
+      "keyword": "du lieu ghep nhom",
+      "weight": 12
+    },
+    {
+      "keyword": "mau so lieu",
+      "weight": 10
+    },
+    {
+      "keyword": "bien co",
+      "weight": 10
+    },
+    {
+      "keyword": "bien co doc lap",
+      "weight": 12
+    },
+    {
+      "keyword": "quy tac cong",
+      "weight": 10
+    },
+    {
+      "keyword": "quy tac nhan",
+      "weight": 10
+    },
+    {
+      "keyword": "ham so bac hai",
+      "weight": 12
+    },
+    {
+      "keyword": "tam thuc bac hai",
+      "weight": 12
+    },
+    {
+      "keyword": "duong conic",
+      "weight": 12
+    },
+    {
+      "keyword": "elip",
+      "weight": 11
+    },
+    {
+      "keyword": "hypebol",
+      "weight": 11
+    },
+    {
+      "keyword": "parabol",
+      "weight": 10
+    },
+    {
+      "keyword": "toa do trong mat phang",
+      "weight": 11
+    },
+    {
+      "keyword": "toa do trong khong gian",
+      "weight": 12
+    },
+    {
+      "keyword": "tich vo huong",
+      "weight": 11
+    },
+    {
+      "keyword": "tich co huong",
+      "weight": 12
+    },
+    {
+      "keyword": "mat cau",
+      "weight": 11
+    },
+    {
+      "keyword": "khoang cach tu diem den mat phang",
+      "weight": 13
+    },
+    {
+      "keyword": "toán",
+      "weight": 36
+    },
+    {
+      "keyword": "môn toán",
+      "weight": 48
+    },
+    {
+      "keyword": "môn thi toán",
+      "weight": 56
+    },
+    {
+      "keyword": "đề toán",
+      "weight": 42
+    },
+    {
+      "keyword": "thầy thanh đi dạy toán",
+      "weight": 60
+    },
+    {
+      "keyword": "vact",
+      "weight": 36
+    },
+    {
+      "keyword": "phá đảo vact",
+      "weight": 44
+    },
+    {
+      "keyword": "hàm số",
+      "weight": 24
+    },
+    {
+      "keyword": "đồ thị hàm số",
+      "weight": 34
+    },
+    {
+      "keyword": "phương trình",
+      "weight": 18
+    },
+    {
+      "keyword": "bất phương trình",
+      "weight": 28
+    },
+    {
+      "keyword": "tham số",
+      "weight": 18
+    },
+    {
+      "keyword": "giới hạn",
+      "weight": 24
+    },
+    {
+      "keyword": "tọa độ oxyz",
+      "weight": 36
+    },
+    {
+      "keyword": "không gian oxyz",
+      "weight": 36
+    },
+    {
+      "keyword": "mặt phẳng",
+      "weight": 24
+    },
+    {
+      "keyword": "đường thẳng",
+      "weight": 20
+    },
+    {
+      "keyword": "tích phân",
+      "weight": 34
+    },
+    {
+      "keyword": "nguyên hàm",
+      "weight": 34
+    },
+    {
+      "keyword": "đạo hàm",
+      "weight": 34
+    },
+    {
+      "keyword": "tiệm cận",
+      "weight": 28
+    },
+    {
+      "keyword": "cực trị",
+      "weight": 28
+    },
+    {
+      "keyword": "số phức",
+      "weight": 30
+    },
+    {
+      "keyword": "lượng giác",
+      "weight": 28
+    },
+    {
+      "keyword": "xác suất",
+      "weight": 28
+    }
+  ],
+  "Vat_ly": [
+    {
+      "keyword": "vat ly",
+      "weight": 16
+    },
+    {
+      "keyword": "vat li",
+      "weight": 16
+    },
+    {
+      "keyword": "mon vat ly",
+      "weight": 18
+    },
+    {
+      "keyword": "physics",
+      "weight": 16
+    },
+    {
+      "keyword": "co hoc",
+      "weight": 10
+    },
+    {
+      "keyword": "gia toc",
+      "weight": 9
+    },
+    {
+      "keyword": "van toc",
+      "weight": 8
+    },
+    {
+      "keyword": "chuyen dong thang",
+      "weight": 11
+    },
+    {
+      "keyword": "chuyen dong tron",
+      "weight": 11
+    },
+    {
+      "keyword": "dong luc hoc",
+      "weight": 12
+    },
+    {
+      "keyword": "dinh luat newton",
+      "weight": 14
+    },
+    {
+      "keyword": "luc ma sat",
+      "weight": 11
+    },
+    {
+      "keyword": "luc keo",
+      "weight": 8
+    },
+    {
+      "keyword": "dong nang",
+      "weight": 9
+    },
+    {
+      "keyword": "the nang trong truong",
+      "weight": 12
+    },
+    {
+      "keyword": "co nang",
+      "weight": 10
+    },
+    {
+      "keyword": "cong co hoc",
+      "weight": 12
+    },
+    {
+      "keyword": "cong suat co hoc",
+      "weight": 12
+    },
+    {
+      "keyword": "dao dong dieu hoa",
+      "weight": 15
+    },
+    {
+      "keyword": "dao dong tat dan",
+      "weight": 12
+    },
+    {
+      "keyword": "cong huong",
+      "weight": 10
+    },
+    {
+      "keyword": "song co hoc",
+      "weight": 12
+    },
+    {
+      "keyword": "buoc song",
+      "weight": 9
+    },
+    {
+      "keyword": "bien do dao dong",
+      "weight": 12
+    },
+    {
+      "keyword": "tan so dao dong",
+      "weight": 12
+    },
+    {
+      "keyword": "chu ky dao dong",
+      "weight": 12
+    },
+    {
+      "keyword": "dien tich",
+      "weight": 8
+    },
+    {
+      "keyword": "dien truong",
+      "weight": 13
+    },
+    {
+      "keyword": "cuong do dien truong",
+      "weight": 14
+    },
+    {
+      "keyword": "hieu dien the",
+      "weight": 11
+    },
+    {
+      "keyword": "cuong do dong dien",
+      "weight": 13
+    },
+    {
+      "keyword": "dien tro",
+      "weight": 9
+    },
+    {
+      "keyword": "tu dien",
+      "weight": 10
+    },
+    {
+      "keyword": "cuon cam",
+      "weight": 11
+    },
+    {
+      "keyword": "mach dien xoay chieu",
+      "weight": 14
+    },
+    {
+      "keyword": "cong suat dien",
+      "weight": 11
+    },
+    {
+      "keyword": "he so cong suat",
+      "weight": 12
+    },
+    {
+      "keyword": "tu truong",
+      "weight": 13
+    },
+    {
+      "keyword": "tu thong",
+      "weight": 12
+    },
+    {
+      "keyword": "cam ung dien tu",
+      "weight": 14
+    },
+    {
+      "keyword": "luc lorentz",
+      "weight": 15
+    },
+    {
+      "keyword": "luc tu",
+      "weight": 10
+    },
+    {
+      "keyword": "suat dien dong",
+      "weight": 13
+    },
+    {
+      "keyword": "khuc xa anh sang",
+      "weight": 13
+    },
+    {
+      "keyword": "phan xa toan phan",
+      "weight": 13
+    },
+    {
+      "keyword": "thau kinh hoi tu",
+      "weight": 12
+    },
+    {
+      "keyword": "thau kinh phan ky",
+      "weight": 12
+    },
+    {
+      "keyword": "giao thoa anh sang",
+      "weight": 13
+    },
+    {
+      "keyword": "nhieu xa",
+      "weight": 10
+    },
+    {
+      "keyword": "nhiet luong",
+      "weight": 9
+    },
+    {
+      "keyword": "noi nang",
+      "weight": 9
+    },
+    {
+      "keyword": "nguyen ly nhiet dong",
+      "weight": 13
+    },
+    {
+      "keyword": "khi ly tuong",
+      "weight": 12
+    },
+    {
+      "keyword": "phuong trinh trang thai khi",
+      "weight": 13
+    },
+    {
+      "keyword": "hat nhan nguyen tu",
+      "weight": 12
+    },
+    {
+      "keyword": "phong xa",
+      "weight": 11
+    },
+    {
+      "keyword": "chu ky ban ra",
+      "weight": 13
+    },
+    {
+      "keyword": "nang luong lien ket hat nhan",
+      "weight": 14
+    },
+    {
+      "keyword": "phan hach",
+      "weight": 12
+    },
+    {
+      "keyword": "nhiet hach",
+      "weight": 12
+    },
+    {
+      "keyword": "photon",
+      "weight": 12
+    },
+    {
+      "keyword": "hieu ung quang dien",
+      "weight": 14
+    },
+    {
+      "keyword": "luong tinh song hat",
+      "weight": 14
+    },
+    {
+      "keyword": "tesla",
+      "weight": 10
+    },
+    {
+      "keyword": "henry",
+      "weight": 9
+    },
+    {
+      "keyword": "farad",
+      "weight": 9
+    },
+    {
+      "keyword": "coulomb",
+      "weight": 10
+    },
+    {
+      "keyword": "gia toc trong truong",
+      "weight": 12
+    },
+    {
+      "keyword": "vat li nhiet",
+      "weight": 13
+    },
+    {
+      "keyword": "mo hinh dong hoc phan tu",
+      "weight": 14
+    },
+    {
+      "keyword": "noi nang khi li tuong",
+      "weight": 13
+    },
+    {
+      "keyword": "dinh luat bao toan nang luong",
+      "weight": 14
+    },
+    {
+      "keyword": "dinh luat bao toan dong luong",
+      "weight": 14
+    },
+    {
+      "keyword": "dong luong",
+      "weight": 11
+    },
+    {
+      "keyword": "xung luong cua luc",
+      "weight": 12
+    },
+    {
+      "keyword": "moment luc",
+      "weight": 11
+    },
+    {
+      "keyword": "moment quan tinh",
+      "weight": 12
+    },
+    {
+      "keyword": "chuyen dong nem",
+      "weight": 12
+    },
+    {
+      "keyword": "truong hap dan",
+      "weight": 12
+    },
+    {
+      "keyword": "cuong do truong hap dan",
+      "weight": 13
+    },
+    {
+      "keyword": "dien the",
+      "weight": 10
+    },
+    {
+      "keyword": "the nang dien",
+      "weight": 12
+    },
+    {
+      "keyword": "dinh luat ohm",
+      "weight": 12
+    },
+    {
+      "keyword": "nguon dien",
+      "weight": 10
+    },
+    {
+      "keyword": "suat dien dong cua nguon",
+      "weight": 13
+    },
+    {
+      "keyword": "nang luong dien tu",
+      "weight": 12
+    },
+    {
+      "keyword": "thuc hanh vat li",
+      "weight": 10
+    },
+    {
+      "keyword": "sai so phep do",
+      "weight": 11
+    },
+    {
+      "keyword": "do thi vat li",
+      "weight": 9
+    },
+    {
+      "keyword": "cam bien vat li",
+      "weight": 12
+    },
+    {
+      "keyword": "tương tác điện",
+      "weight": 38
+    },
+    {
+      "keyword": "tương tác từ",
+      "weight": 38
+    },
+    {
+      "keyword": "lực tương tác",
+      "weight": 38
+    }
+  ],
+  "Hoa_hoc": [
+    {
+      "keyword": "hoa hoc",
+      "weight": 16
+    },
+    {
+      "keyword": "mon hoa",
+      "weight": 18
+    },
+    {
+      "keyword": "mon hoa hoc",
+      "weight": 18
+    },
+    {
+      "keyword": "chemistry",
+      "weight": 16
+    },
+    {
+      "keyword": "nguyen tu khoi",
+      "weight": 12
+    },
+    {
+      "keyword": "cau hinh electron",
+      "weight": 13
+    },
+    {
+      "keyword": "bang tuan hoan nguyen to",
+      "weight": 14
+    },
+    {
+      "keyword": "hoa tri",
+      "weight": 10
+    },
+    {
+      "keyword": "so oxi hoa",
+      "weight": 12
+    },
+    {
+      "keyword": "lien ket cong hoa tri",
+      "weight": 13
+    },
+    {
+      "keyword": "lien ket ion",
+      "weight": 11
+    },
+    {
+      "keyword": "phan ung hoa hoc",
+      "weight": 13
+    },
+    {
+      "keyword": "phan ung oxi hoa khu",
+      "weight": 15
+    },
+    {
+      "keyword": "can bang hoa hoc",
+      "weight": 13
+    },
+    {
+      "keyword": "phuong trinh hoa hoc",
+      "weight": 14
+    },
+    {
+      "keyword": "toc do phan ung",
+      "weight": 11
+    },
+    {
+      "keyword": "chat xuc tac",
+      "weight": 11
+    },
+    {
+      "keyword": "nhiet phan ung",
+      "weight": 11
+    },
+    {
+      "keyword": "axit manh",
+      "weight": 11
+    },
+    {
+      "keyword": "axit yeu",
+      "weight": 11
+    },
+    {
+      "keyword": "bazo manh",
+      "weight": 11
+    },
+    {
+      "keyword": "dung dich dem",
+      "weight": 12
+    },
+    {
+      "keyword": "do ph",
+      "weight": 10
+    },
+    {
+      "keyword": "nong do mol",
+      "weight": 13
+    },
+    {
+      "keyword": "nong do phan tram",
+      "weight": 12
+    },
+    {
+      "keyword": "muoi axit",
+      "weight": 11
+    },
+    {
+      "keyword": "muoi bazo",
+      "weight": 11
+    },
+    {
+      "keyword": "phan ung trung hoa",
+      "weight": 12
+    },
+    {
+      "keyword": "kim loai kiem",
+      "weight": 13
+    },
+    {
+      "keyword": "kim loai kiem tho",
+      "weight": 13
+    },
+    {
+      "keyword": "kim loai chuyen tiep",
+      "weight": 12
+    },
+    {
+      "keyword": "phi kim dien hinh",
+      "weight": 12
+    },
+    {
+      "keyword": "oxit axit",
+      "weight": 11
+    },
+    {
+      "keyword": "oxit bazo",
+      "weight": 11
+    },
+    {
+      "keyword": "dien phan dung dich",
+      "weight": 13
+    },
+    {
+      "keyword": "an mon dien hoa",
+      "weight": 13
+    },
+    {
+      "keyword": "hop kim",
+      "weight": 8
+    },
+    {
+      "keyword": "naoh",
+      "weight": 12
+    },
+    {
+      "keyword": "h2so4",
+      "weight": 12
+    },
+    {
+      "keyword": "hno3",
+      "weight": 12
+    },
+    {
+      "keyword": "hcl",
+      "weight": 10
+    },
+    {
+      "keyword": "caco3",
+      "weight": 12
+    },
+    {
+      "keyword": "nacl",
+      "weight": 10
+    },
+    {
+      "keyword": "fe2o3",
+      "weight": 12
+    },
+    {
+      "keyword": "al2o3",
+      "weight": 12
+    },
+    {
+      "keyword": "cuo",
+      "weight": 10
+    },
+    {
+      "keyword": "khoi luong mol",
+      "weight": 13
+    },
+    {
+      "keyword": "hoa huu co",
+      "weight": 13
+    },
+    {
+      "keyword": "hoa vo co",
+      "weight": 13
+    },
+    {
+      "keyword": "ankan",
+      "weight": 12
+    },
+    {
+      "keyword": "anken",
+      "weight": 12
+    },
+    {
+      "keyword": "ankin",
+      "weight": 12
+    },
+    {
+      "keyword": "ankyl",
+      "weight": 10
+    },
+    {
+      "keyword": "benzen",
+      "weight": 13
+    },
+    {
+      "keyword": "ancol etylic",
+      "weight": 13
+    },
+    {
+      "keyword": "axit axetic",
+      "weight": 13
+    },
+    {
+      "keyword": "este",
+      "weight": 12
+    },
+    {
+      "keyword": "este hoa",
+      "weight": 14
+    },
+    {
+      "keyword": "axit cacboxylic",
+      "weight": 13
+    },
+    {
+      "keyword": "phan ung trang guong",
+      "weight": 14
+    },
+    {
+      "keyword": "glucozo",
+      "weight": 11
+    },
+    {
+      "keyword": "saccarozo",
+      "weight": 11
+    },
+    {
+      "keyword": "tinh bot",
+      "weight": 8
+    },
+    {
+      "keyword": "xenlulozo",
+      "weight": 10
+    },
+    {
+      "keyword": "polime",
+      "weight": 11
+    },
+    {
+      "keyword": "phan ung trung hop",
+      "weight": 13
+    },
+    {
+      "keyword": "phan ung trung ngung",
+      "weight": 13
+    },
+    {
+      "keyword": "amino axit",
+      "weight": 13
+    },
+    {
+      "keyword": "lien ket peptit",
+      "weight": 12
+    },
+    {
+      "keyword": "nang luong hoa hoc",
+      "weight": 13
+    },
+    {
+      "keyword": "enthalpy",
+      "weight": 13
+    },
+    {
+      "keyword": "bien thien enthalpy",
+      "weight": 14
+    },
+    {
+      "keyword": "phan ung toa nhiet",
+      "weight": 12
+    },
+    {
+      "keyword": "phan ung thu nhiet",
+      "weight": 12
+    },
+    {
+      "keyword": "toc do phan ung hoa hoc",
+      "weight": 14
+    },
+    {
+      "keyword": "yeu to anh huong toc do phan ung",
+      "weight": 14
+    },
+    {
+      "keyword": "hang so can bang",
+      "weight": 13
+    },
+    {
+      "keyword": "can bang trong dung dich nuoc",
+      "weight": 14
+    },
+    {
+      "keyword": "pin dien hoa",
+      "weight": 14
+    },
+    {
+      "keyword": "dien cuc",
+      "weight": 10
+    },
+    {
+      "keyword": "the dien cuc chuan",
+      "weight": 14
+    },
+    {
+      "keyword": "day dien hoa kim loai",
+      "weight": 13
+    },
+    {
+      "keyword": "lien ket hydrogen",
+      "weight": 13
+    },
+    {
+      "keyword": "tuong tac van der waals",
+      "weight": 13
+    },
+    {
+      "keyword": "alkane",
+      "weight": 12
+    },
+    {
+      "keyword": "alkene",
+      "weight": 12
+    },
+    {
+      "keyword": "alkyne",
+      "weight": 12
+    },
+    {
+      "keyword": "arene",
+      "weight": 12
+    },
+    {
+      "keyword": "alcohol",
+      "weight": 11
+    },
+    {
+      "keyword": "phenol",
+      "weight": 12
+    },
+    {
+      "keyword": "aldehyde",
+      "weight": 12
+    },
+    {
+      "keyword": "ketone",
+      "weight": 12
+    },
+    {
+      "keyword": "carboxylic acid",
+      "weight": 12
+    },
+    {
+      "keyword": "ester",
+      "weight": 12
+    },
+    {
+      "keyword": "carbohydrate",
+      "weight": 11
+    },
+    {
+      "keyword": "polymer",
+      "weight": 11
+    },
+    {
+      "keyword": "vat lieu polymer",
+      "weight": 12
+    },
+    {
+      "keyword": "hoa hoc xanh",
+      "weight": 12
+    },
+    {
+      "keyword": "thuc hanh hoa hoc",
+      "weight": 10
+    }
+  ],
+  "Sinh_hoc": [
+    {
+      "keyword": "sinh hoc",
+      "weight": 16
+    },
+    {
+      "keyword": "mon sinh",
+      "weight": 18
+    },
+    {
+      "keyword": "mon sinh hoc",
+      "weight": 18
+    },
+    {
+      "keyword": "biology",
+      "weight": 16
+    },
+    {
+      "keyword": "te bao nhan thuc",
+      "weight": 13
+    },
+    {
+      "keyword": "te bao nhan so",
+      "weight": 13
+    },
+    {
+      "keyword": "mang te bao",
+      "weight": 12
+    },
+    {
+      "keyword": "ty the",
+      "weight": 11
+    },
+    {
+      "keyword": "luc lap",
+      "weight": 11
+    },
+    {
+      "keyword": "ribosome",
+      "weight": 13
+    },
+    {
+      "keyword": "nhan te bao",
+      "weight": 12
+    },
+    {
+      "keyword": "chu ky te bao",
+      "weight": 13
+    },
+    {
+      "keyword": "nguyen phan",
+      "weight": 13
+    },
+    {
+      "keyword": "giam phan",
+      "weight": 13
+    },
+    {
+      "keyword": "adn",
+      "weight": 14
+    },
+    {
+      "keyword": "arn",
+      "weight": 13
+    },
+    {
+      "keyword": "gen",
+      "weight": 9
+    },
+    {
+      "keyword": "ma di truyen",
+      "weight": 14
+    },
+    {
+      "keyword": "phien ma",
+      "weight": 13
+    },
+    {
+      "keyword": "dich ma",
+      "weight": 13
+    },
+    {
+      "keyword": "dot bien gen",
+      "weight": 14
+    },
+    {
+      "keyword": "dot bien nhiem sac the",
+      "weight": 15
+    },
+    {
+      "keyword": "nhiem sac the",
+      "weight": 14
+    },
+    {
+      "keyword": "bo nhiem sac the luong boi",
+      "weight": 14
+    },
+    {
+      "keyword": "quy luat mendel",
+      "weight": 14
+    },
+    {
+      "keyword": "quy luat phan ly",
+      "weight": 13
+    },
+    {
+      "keyword": "quy luat phan ly doc lap",
+      "weight": 14
+    },
+    {
+      "keyword": "di truyen lien ket",
+      "weight": 13
+    },
+    {
+      "keyword": "di truyen gioi tinh",
+      "weight": 13
+    },
+    {
+      "keyword": "lai mot cap tinh trang",
+      "weight": 13
+    },
+    {
+      "keyword": "kieu gen",
+      "weight": 11
+    },
+    {
+      "keyword": "kieu hinh",
+      "weight": 11
+    },
+    {
+      "keyword": "alen",
+      "weight": 12
+    },
+    {
+      "keyword": "gen troi",
+      "weight": 11
+    },
+    {
+      "keyword": "gen lan",
+      "weight": 11
+    },
+    {
+      "keyword": "dong hop",
+      "weight": 10
+    },
+    {
+      "keyword": "di hop",
+      "weight": 10
+    },
+    {
+      "keyword": "quang hop",
+      "weight": 13
+    },
+    {
+      "keyword": "ho hap te bao",
+      "weight": 14
+    },
+    {
+      "keyword": "atp sinh hoc",
+      "weight": 12
+    },
+    {
+      "keyword": "enzim sinh hoc",
+      "weight": 12
+    },
+    {
+      "keyword": "hoocmon sinh truong",
+      "weight": 12
+    },
+    {
+      "keyword": "he tuan hoan",
+      "weight": 10
+    },
+    {
+      "keyword": "he tieu hoa",
+      "weight": 10
+    },
+    {
+      "keyword": "he than kinh",
+      "weight": 10
+    },
+    {
+      "keyword": "quan the sinh vat",
+      "weight": 13
+    },
+    {
+      "keyword": "quan xa sinh vat",
+      "weight": 13
+    },
+    {
+      "keyword": "he sinh thai",
+      "weight": 13
+    },
+    {
+      "keyword": "chuoi thuc an",
+      "weight": 12
+    },
+    {
+      "keyword": "luoi thuc an",
+      "weight": 12
+    },
+    {
+      "keyword": "chu trinh vat chat",
+      "weight": 12
+    },
+    {
+      "keyword": "chon loc tu nhien",
+      "weight": 13
+    },
+    {
+      "keyword": "tien hoa sinh hoc",
+      "weight": 13
+    },
+    {
+      "keyword": "lai giong",
+      "weight": 10
+    },
+    {
+      "keyword": "vi khuan",
+      "weight": 10
+    },
+    {
+      "keyword": "vi rut",
+      "weight": 10
+    },
+    {
+      "keyword": "nam moc",
+      "weight": 9
+    },
+    {
+      "keyword": "mien dich",
+      "weight": 11
+    },
+    {
+      "keyword": "khang the",
+      "weight": 11
+    },
+    {
+      "keyword": "khang nguyen",
+      "weight": 11
+    },
+    {
+      "keyword": "sinh truong vi sinh vat",
+      "weight": 13
+    },
+    {
+      "keyword": "sinh hoc te bao",
+      "weight": 14
+    },
+    {
+      "keyword": "sinh hoc phan tu",
+      "weight": 14
+    },
+    {
+      "keyword": "trao doi chat va chuyen hoa nang luong",
+      "weight": 14
+    },
+    {
+      "keyword": "chu ki te bao",
+      "weight": 13
+    },
+    {
+      "keyword": "cong nghe gene",
+      "weight": 14
+    },
+    {
+      "keyword": "cong nghe gen",
+      "weight": 14
+    },
+    {
+      "keyword": "enzyme",
+      "weight": 12
+    },
+    {
+      "keyword": "he gene",
+      "weight": 12
+    },
+    {
+      "keyword": "genome",
+      "weight": 12
+    },
+    {
+      "keyword": "nhan doi adn",
+      "weight": 14
+    },
+    {
+      "keyword": "sinh tong hop protein",
+      "weight": 13
+    },
+    {
+      "keyword": "dieu hoa bieu hien gen",
+      "weight": 14
+    },
+    {
+      "keyword": "di truyen quan the",
+      "weight": 13
+    },
+    {
+      "keyword": "di truyen nguoi",
+      "weight": 13
+    },
+    {
+      "keyword": "ung dung di truyen hoc",
+      "weight": 13
+    },
+    {
+      "keyword": "bang chung tien hoa",
+      "weight": 12
+    },
+    {
+      "keyword": "hinh thanh loai",
+      "weight": 12
+    },
+    {
+      "keyword": "sinh thai hoc phuc hoi",
+      "weight": 13
+    },
+    {
+      "keyword": "da dang sinh hoc",
+      "weight": 12
+    },
+    {
+      "keyword": "bao ton da dang sinh hoc",
+      "weight": 13
+    },
+    {
+      "keyword": "cong nghe vi sinh vat",
+      "weight": 13
+    },
+    {
+      "keyword": "sinh hoc co the thuc vat",
+      "weight": 12
+    },
+    {
+      "keyword": "sinh hoc co the dong vat",
+      "weight": 12
+    },
+    {
+      "keyword": "tiến hóa",
+      "weight": 30
+    },
+    {
+      "keyword": "cảm ứng ở sinh vật",
+      "weight": 36
+    }
+  ],
+  "Ngu_van": [
+    {
+      "keyword": "ngu van",
+      "weight": 16
+    },
+    {
+      "keyword": "mon van",
+      "weight": 18
+    },
+    {
+      "keyword": "mon ngu van",
+      "weight": 18
+    },
+    {
+      "keyword": "van hoc",
+      "weight": 12
+    },
+    {
+      "keyword": "literature",
+      "weight": 14
+    },
+    {
+      "keyword": "truyen kieu",
+      "weight": 14
+    },
+    {
+      "keyword": "nguyen du",
+      "weight": 12
+    },
+    {
+      "keyword": "nam quoc son ha",
+      "weight": 13
+    },
+    {
+      "keyword": "binh ngo dai cao",
+      "weight": 14
+    },
+    {
+      "keyword": "chinh phu ngam",
+      "weight": 12
+    },
+    {
+      "keyword": "chi pheo",
+      "weight": 14
+    },
+    {
+      "keyword": "nam cao",
+      "weight": 12
+    },
+    {
+      "keyword": "tat den",
+      "weight": 13
+    },
+    {
+      "keyword": "ngo tat to",
+      "weight": 12
+    },
+    {
+      "keyword": "vo nhat",
+      "weight": 14
+    },
+    {
+      "keyword": "kim lan",
+      "weight": 12
+    },
+    {
+      "keyword": "rung xa nu",
+      "weight": 14
+    },
+    {
+      "keyword": "dat nuoc nguyen khoa diem",
+      "weight": 15
+    },
+    {
+      "keyword": "song xuan quynh",
+      "weight": 14
+    },
+    {
+      "keyword": "tay tien",
+      "weight": 14
+    },
+    {
+      "keyword": "quang dung",
+      "weight": 12
+    },
+    {
+      "keyword": "viet bac",
+      "weight": 13
+    },
+    {
+      "keyword": "to huu",
+      "weight": 12
+    },
+    {
+      "keyword": "truyen ngan",
+      "weight": 11
+    },
+    {
+      "keyword": "tieu thuyet",
+      "weight": 10
+    },
+    {
+      "keyword": "tho tru tinh",
+      "weight": 12
+    },
+    {
+      "keyword": "tuy but",
+      "weight": 11
+    },
+    {
+      "keyword": "but ky van hoc",
+      "weight": 12
+    },
+    {
+      "keyword": "kich noi",
+      "weight": 10
+    },
+    {
+      "keyword": "tho luc bat",
+      "weight": 12
+    },
+    {
+      "keyword": "tho that ngon",
+      "weight": 12
+    },
+    {
+      "keyword": "tho tu do",
+      "weight": 10
+    },
+    {
+      "keyword": "an du",
+      "weight": 10
+    },
+    {
+      "keyword": "hoan du",
+      "weight": 10
+    },
+    {
+      "keyword": "nhan hoa",
+      "weight": 9
+    },
+    {
+      "keyword": "so sanh tu tu",
+      "weight": 11
+    },
+    {
+      "keyword": "diep ngu",
+      "weight": 11
+    },
+    {
+      "keyword": "dao ngu",
+      "weight": 10
+    },
+    {
+      "keyword": "phep tu tu",
+      "weight": 12
+    },
+    {
+      "keyword": "noi qua",
+      "weight": 9
+    },
+    {
+      "keyword": "noi giam noi tranh",
+      "weight": 12
+    },
+    {
+      "keyword": "phan tich tac pham",
+      "weight": 13
+    },
+    {
+      "keyword": "cam nhan nhan vat",
+      "weight": 13
+    },
+    {
+      "keyword": "nghi luan van hoc",
+      "weight": 14
+    },
+    {
+      "keyword": "nghi luan xa hoi",
+      "weight": 13
+    },
+    {
+      "keyword": "cot truyen",
+      "weight": 10
+    },
+    {
+      "keyword": "tinh huong truyen",
+      "weight": 12
+    },
+    {
+      "keyword": "ngoi ke",
+      "weight": 10
+    },
+    {
+      "keyword": "phong cach ngon ngu nghe thuat",
+      "weight": 14
+    },
+    {
+      "keyword": "ngon ngu nghe thuat",
+      "weight": 12
+    },
+    {
+      "keyword": "thanh phan cau",
+      "weight": 10
+    },
+    {
+      "keyword": "cau ghep",
+      "weight": 9
+    },
+    {
+      "keyword": "cau phuc",
+      "weight": 9
+    },
+    {
+      "keyword": "ngu phap tieng viet",
+      "weight": 12
+    },
+    {
+      "keyword": "doc hieu van ban",
+      "weight": 13
+    },
+    {
+      "keyword": "tap lam van",
+      "weight": 13
+    },
+    {
+      "keyword": "chuong trinh ngu van 2018",
+      "weight": 16
+    },
+    {
+      "keyword": "doc hieu",
+      "weight": 11
+    },
+    {
+      "keyword": "van ban thong tin",
+      "weight": 13
+    },
+    {
+      "keyword": "van ban nghi luan",
+      "weight": 13
+    },
+    {
+      "keyword": "van ban van hoc",
+      "weight": 13
+    },
+    {
+      "keyword": "van ban da phuong thuc",
+      "weight": 14
+    },
+    {
+      "keyword": "the loai van hoc",
+      "weight": 12
+    },
+    {
+      "keyword": "truyen tho",
+      "weight": 11
+    },
+    {
+      "keyword": "than thoai",
+      "weight": 11
+    },
+    {
+      "keyword": "su thi",
+      "weight": 11
+    },
+    {
+      "keyword": "cheo",
+      "weight": 11
+    },
+    {
+      "keyword": "tuồng",
+      "weight": 11
+    },
+    {
+      "keyword": "bi kich",
+      "weight": 11
+    },
+    {
+      "keyword": "hai kich",
+      "weight": 11
+    },
+    {
+      "keyword": "phong cach ngon ngu",
+      "weight": 11
+    },
+    {
+      "keyword": "hanh dong noi",
+      "weight": 10
+    },
+    {
+      "keyword": "nghia cua tu",
+      "weight": 9
+    },
+    {
+      "keyword": "thuc hanh tieng viet",
+      "weight": 12
+    },
+    {
+      "keyword": "viet bai van nghi luan",
+      "weight": 13
+    },
+    {
+      "keyword": "viet bao cao nghien cuu",
+      "weight": 14
+    },
+    {
+      "keyword": "noi va nghe",
+      "weight": 10
+    },
+    {
+      "keyword": "yeu cau can dat doc",
+      "weight": 10
+    },
+    {
+      "keyword": "yeu cau can dat viet",
+      "weight": 10
+    },
+    {
+      "keyword": "ket noi tri thuc ngu van",
+      "weight": 10
+    },
+    {
+      "keyword": "canh dieu ngu van",
+      "weight": 10
+    },
+    {
+      "keyword": "chan troi sang tao ngu van",
+      "weight": 10
+    },
+    {
+      "keyword": "nghệ thuật tuồng",
+      "weight": 60
+    },
+    {
+      "keyword": "vở tuồng",
+      "weight": 56
+    },
+    {
+      "keyword": "kịch tuồng",
+      "weight": 56
+    },
+    {
+      "keyword": "sân khấu tuồng",
+      "weight": 56
+    }
+  ],
+  "Lich_su": [
+    {
+      "keyword": "lich su",
+      "weight": 16
+    },
+    {
+      "keyword": "mon su",
+      "weight": 18
+    },
+    {
+      "keyword": "mon lich su",
+      "weight": 18
+    },
+    {
+      "keyword": "history",
+      "weight": 16
+    },
+    {
+      "keyword": "lich su viet nam",
+      "weight": 14
+    },
+    {
+      "keyword": "trieu dai phong kien",
+      "weight": 12
+    },
+    {
+      "keyword": "vuong trieu",
+      "weight": 10
+    },
+    {
+      "keyword": "khang chien chong phap",
+      "weight": 14
+    },
+    {
+      "keyword": "khang chien chong my",
+      "weight": 14
+    },
+    {
+      "keyword": "cach mang thang tam",
+      "weight": 15
+    },
+    {
+      "keyword": "tong khoi nghia",
+      "weight": 13
+    },
+    {
+      "keyword": "dien bien phu",
+      "weight": 15
+    },
+    {
+      "keyword": "hiep dinh geneve",
+      "weight": 14
+    },
+    {
+      "keyword": "hiep dinh paris",
+      "weight": 14
+    },
+    {
+      "keyword": "thuc dan phap",
+      "weight": 13
+    },
+    {
+      "keyword": "de quoc my",
+      "weight": 13
+    },
+    {
+      "keyword": "thong nhat dat nuoc 1975",
+      "weight": 15
+    },
+    {
+      "keyword": "dang cong san viet nam",
+      "weight": 13
+    },
+    {
+      "keyword": "mat tran viet minh",
+      "weight": 13
+    },
+    {
+      "keyword": "ho chi minh",
+      "weight": 12
+    },
+    {
+      "keyword": "vo nguyen giap",
+      "weight": 13
+    },
+    {
+      "keyword": "nguyen ai quoc",
+      "weight": 13
+    },
+    {
+      "keyword": "tran hung dao",
+      "weight": 13
+    },
+    {
+      "keyword": "ly thuong kiet",
+      "weight": 13
+    },
+    {
+      "keyword": "nguyen hue",
+      "weight": 12
+    },
+    {
+      "keyword": "nha ly",
+      "weight": 10
+    },
+    {
+      "keyword": "nha tran",
+      "weight": 10
+    },
+    {
+      "keyword": "nha le",
+      "weight": 10
+    },
+    {
+      "keyword": "nha nguyen",
+      "weight": 10
+    },
+    {
+      "keyword": "lich su the gioi",
+      "weight": 14
+    },
+    {
+      "keyword": "chien tranh the gioi",
+      "weight": 13
+    },
+    {
+      "keyword": "cach mang cong nghiep",
+      "weight": 12
+    },
+    {
+      "keyword": "cach mang tu san",
+      "weight": 12
+    },
+    {
+      "keyword": "chu nghia thuc dan",
+      "weight": 12
+    },
+    {
+      "keyword": "phong trao giai phong dan toc",
+      "weight": 14
+    },
+    {
+      "keyword": "chien tranh lanh",
+      "weight": 14
+    },
+    {
+      "keyword": "trat tu the gioi hai cuc",
+      "weight": 14
+    },
+    {
+      "keyword": "lien hop quoc",
+      "weight": 10
+    },
+    {
+      "keyword": "phong trao khong lien ket",
+      "weight": 13
+    },
+    {
+      "keyword": "hoi nghi ianta",
+      "weight": 14
+    },
+    {
+      "keyword": "truoc cong nguyen",
+      "weight": 11
+    },
+    {
+      "keyword": "sau cong nguyen",
+      "weight": 11
+    },
+    {
+      "keyword": "the ky",
+      "weight": 6
+    },
+    {
+      "keyword": "chuong trinh lich su 2018",
+      "weight": 16
+    },
+    {
+      "keyword": "lich su va su hoc",
+      "weight": 14
+    },
+    {
+      "keyword": "su hoc",
+      "weight": 10
+    },
+    {
+      "keyword": "van minh the gioi",
+      "weight": 13
+    },
+    {
+      "keyword": "van minh dong nam a",
+      "weight": 14
+    },
+    {
+      "keyword": "van minh dai viet",
+      "weight": 14
+    },
+    {
+      "keyword": "cach mang thang muoi nga",
+      "weight": 14
+    },
+    {
+      "keyword": "trong chien tranh the gioi thu nhat",
+      "weight": 11
+    },
+    {
+      "keyword": "trong chien tranh the gioi thu hai",
+      "weight": 11
+    },
+    {
+      "keyword": "asean",
+      "weight": 12
+    },
+    {
+      "keyword": "lien minh chau au",
+      "weight": 12
+    },
+    {
+      "keyword": "doi moi nam 1986",
+      "weight": 14
+    },
+    {
+      "keyword": "cong cuoc doi moi",
+      "weight": 13
+    },
+    {
+      "keyword": "bao ve to quoc",
+      "weight": 11
+    },
+    {
+      "keyword": "chu quyen bien dao",
+      "weight": 13
+    },
+    {
+      "keyword": "hoang sa truong sa",
+      "weight": 14
+    },
+    {
+      "keyword": "lich su dia phuong",
+      "weight": 13
+    },
+    {
+      "keyword": "di san van hoa",
+      "weight": 11
+    },
+    {
+      "keyword": "bao ton di san",
+      "weight": 11
+    },
+    {
+      "keyword": "nha nuoc van lang au lac",
+      "weight": 13
+    },
+    {
+      "keyword": "thoi bac thuoc",
+      "weight": 12
+    },
+    {
+      "keyword": "cac cuoc khai kien chong ngoai xam",
+      "weight": 13
+    }
+  ],
+  "Dia_ly": [
+    {
+      "keyword": "dia ly",
+      "weight": 16
+    },
+    {
+      "keyword": "mon dia",
+      "weight": 18
+    },
+    {
+      "keyword": "mon dia ly",
+      "weight": 18
+    },
+    {
+      "keyword": "geography",
+      "weight": 16
+    },
+    {
+      "keyword": "atlat",
+      "weight": 15
+    },
+    {
+      "keyword": "dia ly tu nhien",
+      "weight": 14
+    },
+    {
+      "keyword": "ban do dia ly",
+      "weight": 13
+    },
+    {
+      "keyword": "kinh do",
+      "weight": 10
+    },
+    {
+      "keyword": "vi do",
+      "weight": 10
+    },
+    {
+      "keyword": "khi hau nhiet doi",
+      "weight": 12
+    },
+    {
+      "keyword": "khi hau gio mua",
+      "weight": 12
+    },
+    {
+      "keyword": "khi hau on doi",
+      "weight": 12
+    },
+    {
+      "keyword": "dia hinh nui",
+      "weight": 12
+    },
+    {
+      "keyword": "dong bang phu sa",
+      "weight": 12
+    },
+    {
+      "keyword": "cao nguyen",
+      "weight": 10
+    },
+    {
+      "keyword": "bo bien",
+      "weight": 9
+    },
+    {
+      "keyword": "them luc dia",
+      "weight": 11
+    },
+    {
+      "keyword": "luu vuc song",
+      "weight": 11
+    },
+    {
+      "keyword": "mat do dan so",
+      "weight": 13
+    },
+    {
+      "keyword": "phan bo dan cu",
+      "weight": 13
+    },
+    {
+      "keyword": "do thi hoa",
+      "weight": 12
+    },
+    {
+      "keyword": "co cau kinh te",
+      "weight": 11
+    },
+    {
+      "keyword": "nong nghiep lua nuoc",
+      "weight": 12
+    },
+    {
+      "keyword": "cong nghiep hoa hien dai hoa",
+      "weight": 9
+    },
+    {
+      "keyword": "khu kinh te",
+      "weight": 10
+    },
+    {
+      "keyword": "tai nguyen khoang san",
+      "weight": 12
+    },
+    {
+      "keyword": "tai nguyen rung",
+      "weight": 11
+    },
+    {
+      "keyword": "dong bang song cuu long",
+      "weight": 14
+    },
+    {
+      "keyword": "dong bang song hong",
+      "weight": 14
+    },
+    {
+      "keyword": "tay nguyen",
+      "weight": 12
+    },
+    {
+      "keyword": "duyen hai mien trung",
+      "weight": 13
+    },
+    {
+      "keyword": "trung du mien nui phia bac",
+      "weight": 14
+    },
+    {
+      "keyword": "vung kinh te",
+      "weight": 12
+    },
+    {
+      "keyword": "vung kinh te trong diem",
+      "weight": 14
+    },
+    {
+      "keyword": "dia ly viet nam",
+      "weight": 14
+    },
+    {
+      "keyword": "dong nam a",
+      "weight": 10
+    },
+    {
+      "keyword": "chau a gio mua",
+      "weight": 11
+    },
+    {
+      "keyword": "chau au",
+      "weight": 8
+    },
+    {
+      "keyword": "chau phi",
+      "weight": 8
+    },
+    {
+      "keyword": "chau my la tinh",
+      "weight": 10
+    },
+    {
+      "keyword": "trung dong",
+      "weight": 8
+    },
+    {
+      "keyword": "toan cau hoa",
+      "weight": 8
+    },
+    {
+      "keyword": "hoi nhap kinh te quoc te",
+      "weight": 10
+    },
+    {
+      "keyword": "bieu do cot",
+      "weight": 11
+    },
+    {
+      "keyword": "bieu do tron",
+      "weight": 11
+    },
+    {
+      "keyword": "bieu do duong",
+      "weight": 11
+    },
+    {
+      "keyword": "nhan xet bieu do",
+      "weight": 12
+    }
+  ],
+  "Tieng_Anh": [
+    {
+      "keyword": "tieng anh",
+      "weight": 18
+    },
+    {
+      "keyword": "mon tieng anh",
+      "weight": 20
+    },
+    {
+      "keyword": "anh van",
+      "weight": 18
+    },
+    {
+      "keyword": "anh ngu",
+      "weight": 18
+    },
+    {
+      "keyword": "english",
+      "weight": 18
+    },
+    {
+      "keyword": "english grammar",
+      "weight": 16
+    },
+    {
+      "keyword": "reading comprehension",
+      "weight": 14
+    },
+    {
+      "keyword": "writing skill",
+      "weight": 13
+    },
+    {
+      "keyword": "listening skill",
+      "weight": 13
+    },
+    {
+      "keyword": "speaking skill",
+      "weight": 13
+    },
+    {
+      "keyword": "essay writing",
+      "weight": 13
+    },
+    {
+      "keyword": "paragraph writing",
+      "weight": 13
+    },
+    {
+      "keyword": "toeic",
+      "weight": 14
+    },
+    {
+      "keyword": "ielts",
+      "weight": 14
+    },
+    {
+      "keyword": "present simple tense",
+      "weight": 15
+    },
+    {
+      "keyword": "present continuous",
+      "weight": 14
+    },
+    {
+      "keyword": "past simple",
+      "weight": 13
+    },
+    {
+      "keyword": "past continuous",
+      "weight": 13
+    },
+    {
+      "keyword": "present perfect",
+      "weight": 14
+    },
+    {
+      "keyword": "future simple",
+      "weight": 13
+    },
+    {
+      "keyword": "conditional sentence",
+      "weight": 14
+    },
+    {
+      "keyword": "passive voice",
+      "weight": 14
+    },
+    {
+      "keyword": "reported speech",
+      "weight": 14
+    },
+    {
+      "keyword": "relative clause",
+      "weight": 14
+    },
+    {
+      "keyword": "noun clause",
+      "weight": 13
+    },
+    {
+      "keyword": "adverb clause",
+      "weight": 13
+    },
+    {
+      "keyword": "subjunctive mood",
+      "weight": 14
+    },
+    {
+      "keyword": "modal verb",
+      "weight": 13
+    },
+    {
+      "keyword": "noun phrase",
+      "weight": 12
+    },
+    {
+      "keyword": "verb phrase",
+      "weight": 12
+    },
+    {
+      "keyword": "adjective clause",
+      "weight": 13
+    },
+    {
+      "keyword": "preposition",
+      "weight": 10
+    },
+    {
+      "keyword": "conjunction",
+      "weight": 10
+    },
+    {
+      "keyword": "subject verb agreement",
+      "weight": 14
+    },
+    {
+      "keyword": "word formation",
+      "weight": 13
+    },
+    {
+      "keyword": "topic sentence",
+      "weight": 12
+    },
+    {
+      "keyword": "supporting sentence",
+      "weight": 12
+    },
+    {
+      "keyword": "concluding sentence",
+      "weight": 12
+    },
+    {
+      "keyword": "vocabulary in context",
+      "weight": 13
+    },
+    {
+      "keyword": "word collocation",
+      "weight": 13
+    },
+    {
+      "keyword": "phrasal verb",
+      "weight": 14
+    },
+    {
+      "keyword": "idiom",
+      "weight": 10
+    },
+    {
+      "keyword": "synonym",
+      "weight": 10
+    },
+    {
+      "keyword": "antonym",
+      "weight": 10
+    },
+    {
+      "keyword": "pronunciation",
+      "weight": 11
+    },
+    {
+      "keyword": "stress pattern",
+      "weight": 13
+    },
+    {
+      "keyword": "choose the word",
+      "weight": 10
+    },
+    {
+      "keyword": "mark the letter",
+      "weight": 10
+    },
+    {
+      "keyword": "closest in meaning",
+      "weight": 12
+    },
+    {
+      "keyword": "opposite in meaning",
+      "weight": 12
+    },
+    {
+      "keyword": "global success",
+      "weight": 12
+    },
+    {
+      "keyword": "friends global",
+      "weight": 12
+    },
+    {
+      "keyword": "explore new worlds",
+      "weight": 12
+    },
+    {
+      "keyword": "unit test",
+      "weight": 9
+    },
+    {
+      "keyword": "communication and culture",
+      "weight": 14
+    },
+    {
+      "keyword": "looking back",
+      "weight": 10
+    },
+    {
+      "keyword": "getting started",
+      "weight": 10
+    },
+    {
+      "keyword": "language focus",
+      "weight": 12
+    },
+    {
+      "keyword": "everyday english",
+      "weight": 12
+    },
+    {
+      "keyword": "project english",
+      "weight": 10
+    },
+    {
+      "keyword": "listening comprehension",
+      "weight": 14
+    },
+    {
+      "keyword": "reading passage",
+      "weight": 11
+    },
+    {
+      "keyword": "cloze test",
+      "weight": 12
+    },
+    {
+      "keyword": "error identification",
+      "weight": 13
+    },
+    {
+      "keyword": "sentence transformation",
+      "weight": 13
+    },
+    {
+      "keyword": "sentence completion",
+      "weight": 12
+    },
+    {
+      "keyword": "lexical resource",
+      "weight": 12
+    },
+    {
+      "keyword": "grammatical range",
+      "weight": 12
+    },
+    {
+      "keyword": "collocation",
+      "weight": 12
+    },
+    {
+      "keyword": "word stress",
+      "weight": 13
+    },
+    {
+      "keyword": "intonation",
+      "weight": 12
+    },
+    {
+      "keyword": "linking sounds",
+      "weight": 12
+    },
+    {
+      "keyword": "verb tense",
+      "weight": 12
+    },
+    {
+      "keyword": "gerund and infinitive",
+      "weight": 14
+    },
+    {
+      "keyword": "comparison of adjectives",
+      "weight": 13
+    },
+    {
+      "keyword": "defining relative clause",
+      "weight": 14
+    },
+    {
+      "keyword": "non defining relative clause",
+      "weight": 14
+    }
+  ],
+  "Tin_hoc": [
+    {
+      "keyword": "tin hoc",
+      "weight": 16
+    },
+    {
+      "keyword": "mon tin",
+      "weight": 18
+    },
+    {
+      "keyword": "mon tin hoc",
+      "weight": 18
+    },
+    {
+      "keyword": "informatics",
+      "weight": 16
+    },
+    {
+      "keyword": "lap trinh",
+      "weight": 13
+    },
+    {
+      "keyword": "ngon ngu lap trinh",
+      "weight": 14
+    },
+    {
+      "keyword": "thuat toan",
+      "weight": 14
+    },
+    {
+      "keyword": "vong lap for",
+      "weight": 13
+    },
+    {
+      "keyword": "vong lap while",
+      "weight": 13
+    },
+    {
+      "keyword": "cau lenh if",
+      "weight": 13
+    },
+    {
+      "keyword": "mang mot chieu",
+      "weight": 13
+    },
+    {
+      "keyword": "mang hai chieu",
+      "weight": 13
+    },
+    {
+      "keyword": "ham de quy",
+      "weight": 14
+    },
+    {
+      "keyword": "python",
+      "weight": 11
+    },
+    {
+      "keyword": "java",
+      "weight": 10
+    },
+    {
+      "keyword": "pascal",
+      "weight": 12
+    },
+    {
+      "keyword": "visual basic",
+      "weight": 12
+    },
+    {
+      "keyword": "bien so nguyen",
+      "weight": 11
+    },
+    {
+      "keyword": "kieu du lieu",
+      "weight": 12
+    },
+    {
+      "keyword": "con tro",
+      "weight": 11
+    },
+    {
+      "keyword": "cau truc du lieu",
+      "weight": 14
+    },
+    {
+      "keyword": "sap xep noi bot",
+      "weight": 13
+    },
+    {
+      "keyword": "sap xep chen",
+      "weight": 13
+    },
+    {
+      "keyword": "tim kiem nhi phan",
+      "weight": 14
+    },
+    {
+      "keyword": "stack",
+      "weight": 10
+    },
+    {
+      "keyword": "queue",
+      "weight": 10
+    },
+    {
+      "keyword": "danh sach lien ket",
+      "weight": 13
+    },
+    {
+      "keyword": "cay nhi phan",
+      "weight": 13
+    },
+    {
+      "keyword": "do thi",
+      "weight": 9
+    },
+    {
+      "keyword": "do phuc tap thuat toan",
+      "weight": 14
+    },
+    {
+      "keyword": "co so du lieu",
+      "weight": 13
+    },
+    {
+      "keyword": "he quan tri csdl",
+      "weight": 14
+    },
+    {
+      "keyword": "sql",
+      "weight": 11
+    },
+    {
+      "keyword": "truy van du lieu",
+      "weight": 13
+    },
+    {
+      "keyword": "bang du lieu",
+      "weight": 11
+    },
+    {
+      "keyword": "khoa chinh",
+      "weight": 12
+    },
+    {
+      "keyword": "mang may tinh",
+      "weight": 12
+    },
+    {
+      "keyword": "giao thuc tcp ip",
+      "weight": 13
+    },
+    {
+      "keyword": "dia chi ip",
+      "weight": 12
+    },
+    {
+      "keyword": "he dieu hanh",
+      "weight": 11
+    },
+    {
+      "keyword": "phan cung may tinh",
+      "weight": 12
+    },
+    {
+      "keyword": "bo nho rom",
+      "weight": 11
+    },
+    {
+      "keyword": "microsoft excel",
+      "weight": 11
+    },
+    {
+      "keyword": "bang tinh",
+      "weight": 10
+    },
+    {
+      "keyword": "cong thuc excel",
+      "weight": 12
+    },
+    {
+      "keyword": "html",
+      "weight": 10
+    },
+    {
+      "keyword": "css",
+      "weight": 9
+    },
+    {
+      "keyword": "javascript",
+      "weight": 11
+    },
+    {
+      "keyword": "lap trinh web",
+      "weight": 13
+    },
+    {
+      "keyword": "may tinh dien tu",
+      "weight": 11
+    },
+    {
+      "keyword": "chuong trinh tin hoc 2018",
+      "weight": 16
+    },
+    {
+      "keyword": "khoa hoc may tinh",
+      "weight": 14
+    },
+    {
+      "keyword": "tin hoc ung dung",
+      "weight": 14
+    },
+    {
+      "keyword": "ict",
+      "weight": 12
+    },
+    {
+      "keyword": "hoc van so",
+      "weight": 14
+    },
+    {
+      "keyword": "nang luc so",
+      "weight": 13
+    },
+    {
+      "keyword": "dao duc phap luat va van hoa trong moi truong so",
+      "weight": 15
+    },
+    {
+      "keyword": "du lieu va thong tin",
+      "weight": 13
+    },
+    {
+      "keyword": "bieu dien thong tin",
+      "weight": 12
+    },
+    {
+      "keyword": "mang may tinh va internet",
+      "weight": 14
+    },
+    {
+      "keyword": "giai quyet van de voi su tro giup cua may tinh",
+      "weight": 14
+    },
+    {
+      "keyword": "tu duy may tinh",
+      "weight": 14
+    },
+    {
+      "keyword": "tri tue nhan tao",
+      "weight": 14
+    },
+    {
+      "keyword": "robot",
+      "weight": 11
+    },
+    {
+      "keyword": "internet van vat",
+      "weight": 13
+    },
+    {
+      "keyword": "iot",
+      "weight": 12
+    },
+    {
+      "keyword": "an toan thong tin",
+      "weight": 13
+    },
+    {
+      "keyword": "bao mat thong tin",
+      "weight": 13
+    },
+    {
+      "keyword": "phan mem thiet ke do hoa",
+      "weight": 12
+    },
+    {
+      "keyword": "phan mem bang tinh",
+      "weight": 12
+    },
+    {
+      "keyword": "he co so du lieu quan he",
+      "weight": 14
+    },
+    {
+      "keyword": "ngon ngu truy van sql",
+      "weight": 14
+    },
+    {
+      "keyword": "thiet ke website",
+      "weight": 13
+    },
+    {
+      "keyword": "lap trinh python",
+      "weight": 14
+    },
+    {
+      "keyword": "kiem thu chuong trinh",
+      "weight": 13
+    },
+    {
+      "keyword": "tin học",
+      "weight": 44
+    },
+    {
+      "keyword": "môn tin học",
+      "weight": 56
+    },
+    {
+      "keyword": "thi thử voi",
+      "weight": 60
+    },
+    {
+      "keyword": "voi 2025",
+      "weight": 60
+    },
+    {
+      "keyword": "prevoi",
+      "weight": 56
+    },
+    {
+      "keyword": "olympic tin học",
+      "weight": 56
+    },
+    {
+      "keyword": "kỳ thi chọn học sinh giỏi tin học",
+      "weight": 56
+    },
+    {
+      "keyword": "lập trình thi đấu",
+      "weight": 52
+    },
+    {
+      "keyword": "competitive programming",
+      "weight": 52
+    },
+    {
+      "keyword": "dữ liệu vào",
+      "weight": 34
+    },
+    {
+      "keyword": "dữ liệu ra",
+      "weight": 34
+    },
+    {
+      "keyword": "kết quả ghi ra",
+      "weight": 34
+    },
+    {
+      "keyword": "file văn bản",
+      "weight": 24
+    },
+    {
+      "keyword": "subtask",
+      "weight": 44
+    },
+    {
+      "keyword": "hạn chế thời gian",
+      "weight": 42
+    },
+    {
+      "keyword": "hạn chế bộ nhớ",
+      "weight": 42
+    },
+    {
+      "keyword": "giới hạn bộ nhớ",
+      "weight": 42
+    },
+    {
+      "keyword": "seq inp",
+      "weight": 40
+    },
+    {
+      "keyword": "seq out",
+      "weight": 40
+    },
+    {
+      "keyword": "mirror inp",
+      "weight": 40
+    },
+    {
+      "keyword": "mirror out",
+      "weight": 40
+    },
+    {
+      "keyword": "input",
+      "weight": 22
+    },
+    {
+      "keyword": "output",
+      "weight": 22
+    },
+    {
+      "keyword": "test case",
+      "weight": 32
+    },
+    {
+      "keyword": "độ phức tạp thuật toán",
+      "weight": 46
+    },
+    {
+      "keyword": "thuật toán",
+      "weight": 34
+    },
+    {
+      "keyword": "dãy số nguyên",
+      "weight": 28
+    },
+    {
+      "keyword": "truy vấn",
+      "weight": 24
+    }
+  ],
+  "GDCD": [
+    {
+      "keyword": "gdcd",
+      "weight": 18
+    },
+    {
+      "keyword": "giao duc cong dan",
+      "weight": 18
+    },
+    {
+      "keyword": "mon gdcd",
+      "weight": 20
+    },
+    {
+      "keyword": "mon giao duc cong dan",
+      "weight": 20
+    },
+    {
+      "keyword": "phap luat viet nam",
+      "weight": 14
+    },
+    {
+      "keyword": "hien phap",
+      "weight": 12
+    },
+    {
+      "keyword": "bo luat dan su",
+      "weight": 13
+    },
+    {
+      "keyword": "quyen cong dan",
+      "weight": 13
+    },
+    {
+      "keyword": "nghia vu cong dan",
+      "weight": 13
+    },
+    {
+      "keyword": "vi pham phap luat",
+      "weight": 14
+    },
+    {
+      "keyword": "trach nhiem phap ly",
+      "weight": 14
+    },
+    {
+      "keyword": "toi pham",
+      "weight": 11
+    },
+    {
+      "keyword": "hinh phat",
+      "weight": 11
+    },
+    {
+      "keyword": "xu phat hanh chinh",
+      "weight": 13
+    },
+    {
+      "keyword": "nha nuoc phap quyen",
+      "weight": 14
+    },
+    {
+      "keyword": "bo may nha nuoc",
+      "weight": 12
+    },
+    {
+      "keyword": "quoc hoi viet nam",
+      "weight": 12
+    },
+    {
+      "keyword": "hoi dong nhan dan",
+      "weight": 12
+    },
+    {
+      "keyword": "uy ban nhan dan",
+      "weight": 12
+    },
+    {
+      "keyword": "toa an nhan dan",
+      "weight": 12
+    },
+    {
+      "keyword": "kinh te thi truong dinh huong xhcn",
+      "weight": 14
+    },
+    {
+      "keyword": "hop dong lao dong",
+      "weight": 12
+    },
+    {
+      "keyword": "quan he lao dong",
+      "weight": 11
+    },
+    {
+      "keyword": "bao hiem xa hoi",
+      "weight": 11
+    },
+    {
+      "keyword": "quyen so huu tai san",
+      "weight": 12
+    },
+    {
+      "keyword": "quyen binh dang",
+      "weight": 13
+    },
+    {
+      "keyword": "binh dang gioi",
+      "weight": 12
+    },
+    {
+      "keyword": "hon nhan va gia dinh",
+      "weight": 13
+    },
+    {
+      "keyword": "quyen tre em",
+      "weight": 12
+    },
+    {
+      "keyword": "quyen bau cu",
+      "weight": 12
+    },
+    {
+      "keyword": "quyen ung cu",
+      "weight": 12
+    },
+    {
+      "keyword": "dao duc cong dan",
+      "weight": 13
+    },
+    {
+      "keyword": "loi song van minh",
+      "weight": 11
+    },
+    {
+      "keyword": "trach nhiem cong dong",
+      "weight": 12
+    }
+  ]
+}

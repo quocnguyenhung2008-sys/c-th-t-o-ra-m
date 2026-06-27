@@ -1,0 +1,14 @@
+{
+  "non_subject": [
+    {"keyword": "hop dong", "weight": 9},
+    {"keyword": "hoa don", "weight": 9},
+    {"keyword": "bien ban", "weight": 8},
+    {"keyword": "so yeu ly lich", "weight": 10},
+    {"keyword": "don xin", "weight": 8},
+    {"keyword": "ke hoach cong tac", "weight": 8},
+    {"keyword": "bao cao tai chinh", "weight": 10},
+    {"keyword": "bang luong", "weight": 10},
+    {"keyword": "chung minh nhan dan", "weight": 10},
+    {"keyword": "can cuoc cong dan", "weight": 10}
+  ]
+}
