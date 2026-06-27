@@ -120,3 +120,22 @@ Cong cu khong doc toan bo PDF theo mac dinh. No lay mau theo thu tu:
 - trang cuoi
 
 Cach nay tranh truong hop bia/muc luc khong co noi dung mon hoc, nhung van giu thoi gian xu ly thap.
+
+
+
+
+| Filename                                            | Được phân loại | Nhận xét                                                                |
+| --------------------------------------------------- | -------------- | ----------------------------------------------------------------------- |
+| `10. HĐ PHÍ MG.docx`                                | Toán           | Đây có vẻ là hợp đồng, không phải tài liệu Toán.                        |
+| `2 DS niem yet THPT hoan chinh 2023 2024 Ct.pdf`    | Ngữ văn        | Danh sách niêm yết, không phải Ngữ văn.                                 |
+| `2022_2023 KQ HSG cap tinh THCS khoa 01_3_2023.pdf` | Tiếng Anh      | Là kết quả kỳ thi HSG, không thể suy ra Tiếng Anh từ tên file.          |
+| `2024 2025_KQ thi chon doi tuyen.pdf`               | Hóa học        | Kết quả chọn đội tuyển, không phải tài liệu Hóa.                        |
+| `20_11.docx`                                        | Lịch sử        | Tên quá chung, không đủ căn cứ.                                         |
+| `30. VB TỪ CHỐI QUYỀN ƯU TIÊN MUA NHÀ...docx`       | Ngữ văn        | Đây là văn bản pháp lý.                                                 |
+| `BỘ GIÁO DỤC VÀ ĐÀO TẠO.docx`                       | Tiếng Anh      | Khả năng rất thấp là tài liệu Tiếng Anh.                                |
+| `GCN Nguyễn Quốc Đạt.pdf`                           | Toán           | Giấy chứng nhận, không phải Toán.                                       |
+| `Hệ thống tuyển sinh trực tuyến (1).pdf`            | Ngữ văn        | Không phải tài liệu môn học.                                            |
+| `NGUYỄN QUỐC ĐẠT.pdf`                               | Ngữ văn        | Tên cá nhân, khó liên quan Ngữ văn.                                     |
+| `OLP23 Solution Khối Không chuyên.pdf`              | Lịch sử        | "Solution" thường là lời giải Olympic, khả năng cao không phải Lịch sử. |
+| `PHIẾU ĐĂNG KÝ DỰ THI.pdf`                          | Toán           | Biểu mẫu hành chính.                                                    |
+| `Sa01-HKD.pdf`                                      | Hóa học        | Tên file không liên quan Hóa học.                                       |
