@@ -4,3 +4,4 @@
 # Ignore all Word documents
 *.docx
 *.doc
+*.pyc

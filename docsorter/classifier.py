@@ -5,7 +5,7 @@ from enum import Enum
 from pathlib import Path
 
 from .config import ClassificationConfig
-from .docx_engine import extract_docx_text
+from .docx_engine import extract_doc_text, extract_docx_text
 from .keyword_engine import load_alias_rules, load_keyword_rules, load_negative_rules
 from .pdf_engine import PdfExtractionResult, extract_pdf_text
 from .scoring import MatchEvidence, ScoreResult, score_document
@@ -133,7 +133,7 @@ class DocumentClassifier:
             negative_score=score_result.negative_score,
             evidence=evidence,
             pages_sampled=pdf_result.pages_sampled if pdf_result else [],
-            extraction_engine=pdf_result.engine if pdf_result else "docx",
+            extraction_engine=pdf_result.engine if pdf_result else path.suffix.lower().lstrip("."),
             ocr_used=pdf_result.ocr_used if pdf_result else False,
             error="; ".join(pdf_result.errors) if pdf_result and pdf_result.errors else "",
         )
@@ -192,6 +192,9 @@ class DocumentClassifier:
         suffix = path.suffix.lower()
         if suffix == ".docx" and self.config.include_docx:
             return extract_docx_text(path), None
+        if suffix == ".doc" and self.config.include_docx:
+            # .doc dùng chung flag include_docx — tắt --no-docx là tắt cả hai
+            return extract_doc_text(path), None
         if suffix == ".pdf" and self.config.include_pdf:
             result = extract_pdf_text(
                 path,
@@ -210,11 +213,18 @@ class DocumentClassifier:
         self, score_result: ScoreResult
     ) -> tuple[ClassificationStatus, str, float, float, list[MatchEvidence]]:
         ranked = sorted(score_result.scores.values(), key=lambda item: item.score, reverse=True)
+
+        # Nhãn thư mục negative: dùng winning_negative_label nếu có, fallback về config
+        non_subject_label = (
+            score_result.winning_negative_label
+            or self.config.non_subject_dir_name
+        )
+
         if not ranked:
             if score_result.negative_score >= self.config.min_score:
                 return (
                     ClassificationStatus.NON_SUBJECT,
-                    self.config.non_subject_dir_name,
+                    non_subject_label,
                     0.0,
                     0.0,
                     score_result.negative_evidence,
@@ -228,7 +238,7 @@ class DocumentClassifier:
         if score_result.negative_score > top.score and score_result.negative_score >= self.config.min_score:
             return (
                 ClassificationStatus.NON_SUBJECT,
-                self.config.non_subject_dir_name,
+                non_subject_label,
                 top.score,
                 runner_up_score,
                 score_result.negative_evidence,
