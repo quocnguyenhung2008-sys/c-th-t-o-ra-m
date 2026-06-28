@@ -144,6 +144,7 @@ def config_from_args(args: argparse.Namespace) -> ClassificationConfig:
     )
 
 
+<<<<<<< HEAD
 def _detect_hardware_info(ocr_backend: str) -> str:
     """Phát hiện GPU/MPS/CPU và trả về chuỗi mô tả để log. Hỗ trợ Apple Silicon MPS."""
     if ocr_backend == "none":
@@ -179,6 +180,31 @@ def _print_progress(done: int, total: int, width: int = 30) -> None:
     sys.stdout.flush()
     if done == total:
         sys.stdout.write("\n")
+=======
+def _classify_worker(args: tuple) -> tuple:
+    """Worker chạy trong subprocess riêng — không chia sẻ state với main process."""
+    path_str, config = args
+    from docsorter.classifier import DocumentClassifier
+    from pathlib import Path
+    classifier = DocumentClassifier(config)
+    path = Path(path_str)
+    classification = classifier.classify(path)
+    return (path_str, classification)
+
+
+def _detect_hardware() -> None:
+    """In thông tin phần cứng tăng tốc hiện có (MPS / CUDA / CPU)."""
+    try:
+        import torch
+        if torch.backends.mps.is_available() and torch.backends.mps.is_built():
+            print("[+] Apple Silicon MPS (Metal Performance Shaders) sẵn sàng.")
+        elif torch.cuda.is_available():
+            print(f"[+] GPU CUDA: {torch.cuda.get_device_name(0)}")
+        else:
+            print("[-] Không tìm thấy MPS/CUDA — OCR sẽ chạy bằng CPU.")
+    except ImportError:
+        print("[!] torch chưa cài — không kiểm tra được backend phần cứng.")
+>>>>>>> 5b3bdbabfd60b865131af56e2475b81128580357
 
 
 def main() -> int:
@@ -191,6 +217,7 @@ def main() -> int:
     if not input_dir.exists() or not input_dir.is_dir():
         parser.error(f"Input directory does not exist: {input_dir}")
 
+<<<<<<< HEAD
     # ── Thông tin phần cứng ──────────────────────────────────────────────────
     hw_info = _detect_hardware_info(config.ocr_backend)
     if hw_info:
@@ -251,6 +278,88 @@ def main() -> int:
     if not config.dry_run:
         print(f"  Báo cáo: {report_path}")
     print(f"{'─'*50}")
+=======
+    # ── Thông báo trạng thái OCR & phần cứng ────────────────────────────────
+    if config.ocr_backend != "none":
+        print(f"[*] OCR Backend: {config.ocr_backend.upper()}")
+        if config.ocr_backend == "paddleocr":
+            try:
+                import paddle
+                if paddle.is_compiled_with_cuda() and paddle.device.cuda.device_count() > 0:
+                    print("[+] PaddleOCR: GPU CUDA sẵn sàng.")
+                else:
+                    print("[-] PaddleOCR: không có CUDA — chạy CPU (MPS không được hỗ trợ bởi Paddle).")
+            except ImportError:
+                print("[!] paddleocr chưa được cài đặt.")
+        else:
+            _detect_hardware()
+
+    # ── Khám phá file ────────────────────────────────────────────────────────
+    files = list(discover_files(input_dir, config, exclude_roots=(output_dir,)))
+    rows = []
+
+    # ── Chọn chiến lược xử lý ────────────────────────────────────────────────
+    # Dùng ProcessPoolExecutor khi có đủ file và không phải dry-run / OCR batch.
+    # OCR nặng (easyocr/paddleocr) không song song hoá vì model nạp vào GPU 1 lần;
+    # spawn nhiều process sẽ tranh chấp VRAM / Unified Memory → chậm hơn.
+    use_parallel = (
+        len(files) >= 4
+        and not config.dry_run
+        and config.ocr_backend == "none"   # OCR: giữ tuần tự để dùng chung model
+    )
+
+    if use_parallel:
+        import multiprocessing
+        import os
+        from concurrent.futures import ProcessPoolExecutor, as_completed
+
+        # Tính số worker tối ưu: giữ 1 core cho main + I/O, tối đa 8
+        p_count = (
+            len(os.sched_getaffinity(0))
+            if hasattr(os, "sched_getaffinity")
+            else (os.cpu_count() or 4)
+        )
+        max_workers = max(2, min(p_count - 1, 8))
+        print(f"[*] Song song hoá: {max_workers} workers (spawn) cho {len(files)} file.")
+
+        # spawn bắt buộc trên macOS — fork deadlock với PyMuPDF & CoreFoundation
+        ctx = multiprocessing.get_context("spawn")
+        worker_args = [(str(p), config) for p in files]
+
+        with ProcessPoolExecutor(max_workers=max_workers, mp_context=ctx) as pool:
+            future_map = {pool.submit(_classify_worker, arg): arg[0] for arg in worker_args}
+            for future in as_completed(future_map):
+                try:
+                    _path_str, classification = future.result()
+                    # place_file luôn chạy trên main process để tránh race condition I/O
+                    move_result = place_file(classification, output_dir, config)
+                    rows.append((classification, move_result))
+                    print(
+                        f"{classification.source_path.name} -> {classification.target_label} "
+                        f"({classification.status.value}, score={classification.score:.1f}, action={move_result.action})"
+                    )
+                except Exception as exc:
+                    print(f"[!] Lỗi: {future_map[future]}: {exc}")
+    else:
+        # ── Tuần tự: dry-run, ít file, hoặc đang dùng OCR ──────────────────
+        classifier = DocumentClassifier(config)
+        for path in files:
+            classification = classifier.classify(path)
+            move_result = place_file(classification, output_dir, config)
+            rows.append((classification, move_result))
+            print(
+                f"{path.name} -> {classification.target_label} "
+                f"({classification.status.value}, score={classification.score:.1f}, action={move_result.action})"
+            )
+
+    # ── Xuất báo cáo ─────────────────────────────────────────────────────────
+    report_path = output_dir / config.report_name
+    if not config.dry_run:
+        write_report(report_path, rows)
+        print(f"Report: {report_path}")
+    else:
+        print(f"Dry run complete. {len(files)} files evaluated.")
+>>>>>>> 5b3bdbabfd60b865131af56e2475b81128580357
     return 0
 
 

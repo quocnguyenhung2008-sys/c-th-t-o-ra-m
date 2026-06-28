@@ -28,9 +28,12 @@ def extract_pdf_text(
     page_count = _get_page_count(path, errors)
     pages = sampled_page_indexes(page_count, max_pages)
 
+    # ── Thứ tự engine: PyMuPDF trước — nhanh hơn pdfplumber 3–8× trên macOS ──
+    # pdfplumber chính xác hơn cho bảng biểu nhưng chậm hơn đáng kể;
+    # với mục đích phân loại từ khóa, PyMuPDF là đủ và nhanh hơn nhiều.
     for engine_name, extractor in (
-        ("pdfplumber", _extract_with_pdfplumber),
         ("pymupdf", _extract_with_pymupdf),
+        ("pdfplumber", _extract_with_pdfplumber),
         ("pypdf", _extract_with_pypdf),
     ):
         try:
@@ -38,6 +41,7 @@ def extract_pdf_text(
         except Exception as exc:
             errors.append(f"{engine_name}: {exc}")
             continue
+
         if len(text.strip()) >= min_chars_before_ocr:
             if enable_ocr and always_ocr_pdf:
                 ocr_text, ocr_errors = _try_ocr(path, pages, ocr_backend)
@@ -51,6 +55,7 @@ def extract_pdf_text(
                         errors=errors,
                     )
             return PdfExtractionResult(text=text, pages_sampled=pages, engine=engine_name, ocr_used=False, errors=errors)
+
         errors.append(f"{engine_name}: extracted text too short ({len(text.strip())} chars)")
 
     if enable_ocr:
@@ -70,26 +75,37 @@ def _try_ocr(path: Path, pages: list[int], ocr_backend: str) -> tuple[str, list[
 
 
 def _get_page_count(path: Path, errors: list[str]) -> int:
-    try:
-        import pypdf  # type: ignore
-
-        with path.open("rb") as file:
-            return len(pypdf.PdfReader(file).pages)
-    except Exception as exc:
-        errors.append(f"page_count: {exc}")
+    # ── PyMuPDF trước để đếm trang — nhanh hơn và ít overhead hơn pypdf ──
     try:
         import fitz  # type: ignore
-
         with fitz.open(str(path)) as document:
             return document.page_count
     except Exception as exc:
         errors.append(f"page_count_pymupdf: {exc}")
+
+    try:
+        import pypdf  # type: ignore
+        with path.open("rb") as file:
+            return len(pypdf.PdfReader(file).pages)
+    except Exception as exc:
+        errors.append(f"page_count_pypdf: {exc}")
+
     return 0
+
+
+def _extract_with_pymupdf(path: Path, pages: list[int]) -> str:
+    import fitz  # type: ignore
+    parts: list[str] = []
+    with fitz.open(str(path)) as document:
+        for page_index in pages:
+            if page_index < document.page_count:
+                # TEXT_DEHYPHENATE ghép từ bị ngắt dòng — quan trọng cho đề thi in 2 cột
+                parts.append(document.load_page(page_index).get_text("text", flags=fitz.TEXT_DEHYPHENATE))
+    return "\n".join(parts)
 
 
 def _extract_with_pdfplumber(path: Path, pages: list[int]) -> str:
     import pdfplumber  # type: ignore
-
     parts: list[str] = []
     with pdfplumber.open(str(path)) as pdf:
         for page_index in pages:
@@ -98,20 +114,8 @@ def _extract_with_pdfplumber(path: Path, pages: list[int]) -> str:
     return "\n".join(parts)
 
 
-def _extract_with_pymupdf(path: Path, pages: list[int]) -> str:
-    import fitz  # type: ignore
-
-    parts: list[str] = []
-    with fitz.open(str(path)) as document:
-        for page_index in pages:
-            if page_index < document.page_count:
-                parts.append(document.load_page(page_index).get_text("text"))
-    return "\n".join(parts)
-
-
 def _extract_with_pypdf(path: Path, pages: list[int]) -> str:
     import pypdf  # type: ignore
-
     parts: list[str] = []
     with path.open("rb") as file:
         reader = pypdf.PdfReader(file)

@@ -19,11 +19,14 @@ def discover_files(root: Path, config: ClassificationConfig, exclude_roots: tupl
     patterns: list[str] = []
     if config.include_docx:
         patterns.append("*.docx")
+        patterns.append("*.doc")
     if config.include_pdf:
         patterns.append("*.pdf")
+
     iterator = root.rglob if config.recursive else root.glob
     files: list[Path] = []
     resolved_excludes = tuple(path.resolve() for path in exclude_roots)
+
     for pattern in patterns:
         files.extend(
             path
@@ -32,6 +35,7 @@ def discover_files(root: Path, config: ClassificationConfig, exclude_roots: tupl
             and not path.name.startswith("~$")
             and not _is_inside_any(path, resolved_excludes)
         )
+
     return sorted(set(files))
 
 
@@ -47,12 +51,16 @@ def place_file(
 ) -> MoveResult:
     destination_dir = output_root / classification.target_label
     destination = _unique_destination(destination_dir / classification.path.name, config.overwrite)
+
     if config.dry_run:
         return MoveResult(classification.path, destination, "dry-run")
+
     destination_dir.mkdir(parents=True, exist_ok=True)
+
     if config.copy:
         shutil.copy2(classification.path, destination)
         return MoveResult(classification.path, destination, "copied")
+
     shutil.move(str(classification.path), str(destination))
     return MoveResult(classification.path, destination, "moved")
 
@@ -60,6 +68,7 @@ def place_file(
 def _unique_destination(destination: Path, overwrite: bool) -> Path:
     if overwrite or not destination.exists():
         return destination
+
     stem = destination.stem
     suffix = destination.suffix
     parent = destination.parent
