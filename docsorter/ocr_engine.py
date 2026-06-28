@@ -17,45 +17,24 @@ class PdfOcrEngine:
         self._system_torch_backup: Any = None
 
     def _get_easyocr_reader(self) -> Any:
-        """Nạp EasyOCR một lần duy nhất (Lazy Loading) — ưu tiên MPS trên Apple Silicon."""
+        """Nạp EasyOCR vào GPU một lần duy nhất (Lazy Loading)"""
         if self._easyocr_reader is None:
             try:
                 # Khôi phục module torch nếu trước đó bị PaddleOCR ẩn đi
                 import sys
                 if self._system_torch_backup and 'torch' in sys.modules and sys.modules['torch'] is None:
                     sys.modules['torch'] = self._system_torch_backup
-
+                
                 import easyocr  # type: ignore
             except ImportError as exc:
                 raise OcrUnavailableError("easyocr is required for EasyOCR.") from exc
-
-            # ── Phát hiện backend tăng tốc tối ưu cho macOS / Windows / Linux ──
-            gpu_available = False
-            try:
-                import torch
-                if torch.backends.mps.is_available() and torch.backends.mps.is_built():
-                    # Apple Silicon: MPS (Metal Performance Shaders) — torch >= 2.0
-                    gpu_available = True
-                    print("[+] EasyOCR: Apple Silicon MPS (Metal Performance Shaders) đã kích hoạt.")
-                elif torch.cuda.is_available():
-                    gpu_available = True
-                    print(f"[+] EasyOCR: GPU CUDA — {torch.cuda.get_device_name(0)}")
-                else:
-                    print("[-] EasyOCR: không tìm thấy MPS/CUDA — chạy bằng CPU.")
-            except ImportError:
-                pass
-
-            self._easyocr_reader = easyocr.Reader(
-                ["vi", "en"],
-                gpu=gpu_available,
-                # quantize=True giảm ~40% RAM / Unified Memory trên M-chip
-                # với chênh lệch độ chính xác không đáng kể cho văn bản in đề thi
-                quantize=True,
-            )
+            
+            # Kích hoạt GPU=True cho EasyOCR với cặp ngôn ngữ tối ưu cho THPT Việt Nam
+            self._easyocr_reader = easyocr.Reader(["vi", "en"], gpu=True)
         return self._easyocr_reader
 
     def _get_paddleocr_engine(self) -> Any:
-        """Nạp PaddleOCR 3.x và xử lý các lỗi xung đột hệ thống trên Windows."""
+        """Nạp PaddleOCR 3.x và xử lý các lỗi xung đột hệ thống trên Windows"""
         if self._paddleocr_engine is None:
             try:
                 # 1. Ép Python cô lập PyTorch để tránh lỗi shm.dll nhưng có sao lưu
@@ -63,9 +42,9 @@ class PdfOcrEngine:
                 if 'torch' in sys.modules and sys.modules['torch'] is not None:
                     self._system_torch_backup = sys.modules['torch']
                 sys.modules['torch'] = None
-
+                
                 import paddle  # type: ignore
-
+                
                 # 2. MONKEY PATCH: Sửa lỗi thiếu thuộc tính set_optimization_level của Paddle Core trên Windows
                 if hasattr(paddle, 'base') and hasattr(paddle.base, 'libpaddle') and hasattr(paddle.base.libpaddle, 'AnalysisConfig'):
                     cfg_cls = paddle.base.libpaddle.AnalysisConfig
@@ -75,10 +54,10 @@ class PdfOcrEngine:
                 from paddleocr import PaddleOCR  # type: ignore
             except ImportError as exc:
                 raise OcrUnavailableError("paddleocr is required for PaddleOCR.") from exc
-
-            # Lưu ý: PaddleOCR không hỗ trợ MPS — chạy CPU trên Apple Silicon
+            
+            # Khởi tạo mô hình mượt mà
             self._paddleocr_engine = PaddleOCR(lang="vi")
-
+            
         return self._paddleocr_engine
 
     def _render_pdf_pages(self, path: Path, page_indexes: list[int]) -> list[Any]:
@@ -101,39 +80,25 @@ class PdfOcrEngine:
     def ocr_with_easyocr(self, path: Path, page_indexes: list[int]) -> str:
         reader = self._get_easyocr_reader()
         parts: list[str] = []
-
+        
         for pixmap in self._render_pdf_pages(path, page_indexes):
             image_bytes = pixmap.tobytes("png")
-
+            
             # TỐI ƯU BỘ ĐỌC EASYOCR:
-            # - decoder='greedy' tăng tốc phản hồi text thô của đề thi
-            # - batch_size=4 cho MPS xử lý nhiều patch song song hơn trên Neural Engine
-            # - mag_ratio=1.0 giảm VRAM, vẫn đủ cho 144 DPI
-            bounds = reader.readtext(
-                image_bytes,
-                decoder='greedy',
-                detail=1,
-                batch_size=4,
-                mag_ratio=1.0,
-            )
-
+            # - Bỏ `paragraph=True` hoặc tinh chỉnh tham số chặn khoảng cách ranh giới.
+            # - Thêm `decoder='greedy'` để tăng tốc độ phản hồi text thô của đề thi.
+            bounds = reader.readtext(image_bytes, decoder='greedy', detail=1)
+            
             # Sắp xếp các khối văn bản theo tọa độ từ trên xuống dưới, từ trái sang phải
-            # Ngăn chặn EasyOCR đọc lộn xộn các đáp án trắc nghiệm A, B, C, D dính vào nhau
+            # Điều này ngăn chặn việc EasyOCR đọc lộn xộn các đáp án trắc nghiệm A, B, C, D dính vào nhau
             bounds.sort(key=lambda x: (x[0][0][1], x[0][0][0]))
-
-            parts.extend(text_res[1] for text_res in bounds if text_res[1])
-
-        # DỌN DẸP BỘ NHỚ sau khi quét xong 1 file PDF nặng
+            
+            extracted_text = [text_res[1] for text_res in bounds if text_res[1]]
+            parts.extend(extracted_text)
+            
+        # DỌN DẸP VRAM: Ép giải phóng bộ nhớ đệm ngay sau khi quét xong 1 file PDF nặng
         gc.collect()
-
-        # Giải phóng MPS cache trên Apple Silicon để tránh OOM với Unified Memory
-        try:
-            import torch
-            if torch.backends.mps.is_available():
-                torch.mps.empty_cache()
-        except Exception:
-            pass
-
+        
         return "\n".join(parts)
 
     def ocr_with_paddleocr(self, path: Path, page_indexes: list[int]) -> str:
@@ -144,18 +109,18 @@ class PdfOcrEngine:
 
         engine = self._get_paddleocr_engine()
         parts: list[str] = []
-
+        
         for pixmap in self._render_pdf_pages(path, page_indexes):
             img_np = np.frombuffer(pixmap.samples, dtype=np.uint8).reshape(
                 (pixmap.height, pixmap.width, 3)
             )
-
+            
             result = engine.ocr(img_np, cls=True)
             for page_result in result or []:
                 for line in page_result or []:
                     if len(line) >= 2 and line[1]:
                         parts.append(str(line[1][0]))
-
+                        
         gc.collect()
         return "\n".join(parts)
 
@@ -165,7 +130,7 @@ _global_engine = PdfOcrEngine()
 
 
 def ocr_pdf_pages(path: Path, page_indexes: list[int], backend: str) -> str:
-    """Hàm interface giữ nguyên tên cũ để các module tầng trên không bị lỗi."""
+    """Hàm interface giữ nguyên tên cũ để các module tầng trên không bị lỗi"""
     if backend == "none":
         raise OcrUnavailableError("OCR is disabled.")
     if backend == "easyocr":

@@ -8,19 +8,16 @@ from .regex_utils import has_vietnamese_diacritics
 
 # MỞ RỘNG: Bổ sung thêm các từ ngữ cảnh giúp nhận diện chính xác alias ngắn trong THPT
 _SHORT_ALIAS_CONTEXT_WORDS = {
-    "bai", "bo", "chuyen", "de", "decuong", "giao", "giaoan",
-    "hk", "hki", "hkii", "hoc", "kiem", "ki", "ky", "lop", "mon",
+    "bai", "bo", "chuyen", "de", "decuong", "giao", "giaoan", 
+    "hk", "hki", "hkii", "hoc", "kiem", "ki", "ky", "lop", "mon", 
     "on", "tap", "thi", "thpt", "tn", "tot", "tra",
-    "khao", "sat", "tuyen", "sinh", "chuyen", "boiduong", "hsg"
+    "khao", "sat", "tuyen", "sinh", "chuyen", "boiduong", "hsg" # Thêm từ khóa ngữ cảnh thi HSG, Khảo sát
 }
 
 _GRADE_TOKENS = {"10", "11", "12"}
 _RISKY_SINGLE_TOKENS = {
     "ai", "anh", "hoa", "ly", "li", "su", "ta", "tin", "toan", "tuong", "van", "vo",
 }
-
-# Tiền tố thư mục cho nhãn negative — giúp các thư mục nhóm lại đầu danh sách
-_LABEL_PREFIX = "_"
 
 
 @dataclass(frozen=True)
@@ -43,8 +40,6 @@ class ScoreResult:
     scores: dict[str, SubjectScore]
     negative_score: float
     negative_evidence: list[MatchEvidence]
-    # Nhãn thư mục của nhóm negative thắng (nếu có), ví dụ "_Hop_dong"
-    winning_negative_label: str = ""
 
 
 def _score_rules(
@@ -154,19 +149,11 @@ def _score_negative_rules(
     text: str,
     source: str,
     multiplier: float,
-) -> tuple[float, list[MatchEvidence], dict[str, float]]:
-    """
-    Trả về:
-      - tổng điểm negative
-      - danh sách evidence
-      - dict {label -> tổng điểm} để xác định nhóm thắng
-    """
+) -> tuple[float, list[MatchEvidence]]:
     text_forms = normalize_text(text)
     text_has_diacritics = has_vietnamese_diacritics(text_forms.normalized)
     total = 0.0
     evidence: list[MatchEvidence] = []
-    label_scores: dict[str, float] = {}
-
     for rule in rules:
         accented_count = 0
         if rule.has_diacritics and text_has_diacritics:
@@ -176,25 +163,8 @@ def _score_negative_rules(
             continue
         score = count * rule.weight * multiplier
         total += score
-        label_scores[rule.label] = label_scores.get(rule.label, 0.0) + score
         evidence.append(MatchEvidence(keyword=rule.keyword, count=count, score=score, source=source))
-
-    return total, evidence, label_scores
-
-
-def _resolve_winning_label(
-    filename_label_scores: dict[str, float],
-    body_label_scores: dict[str, float],
-) -> str:
-    """Cộng điểm từng nhóm (filename + body) rồi chọn nhóm có điểm cao nhất."""
-    merged: dict[str, float] = {}
-    for label, score in {**filename_label_scores, **body_label_scores}.items():
-        merged[label] = merged.get(label, 0.0) + score
-    if not merged:
-        return ""
-    winning = max(merged, key=lambda k: merged[k])
-    # Thêm tiền tố _ nếu chưa có để tạo thư mục _Hop_dong, _Hoc_sinh_gioi, ...
-    return winning if winning.startswith(_LABEL_PREFIX) else f"{_LABEL_PREFIX}{winning}"
+    return total, evidence
 
 
 def score_document(
@@ -207,54 +177,53 @@ def score_document(
     filename_alias_rules: list[KeywordRule] | None = None,
 ) -> ScoreResult:
     """
-    Tính toán điểm tài liệu và thực thi bộ lọc gạt giò (Veto)
+    Tính toán điểm tài liệu và thực thi bộ lọc gạt giò (Veto) 
     để loại bỏ các văn bản hành chính/phi môn học ra khỏi danh mục môn học.
-    Nhãn thư mục đích được suy ra từ nhóm negative thắng (Hop_dong, Hoc_sinh_gioi, Hanh_chinh...).
     """
     scores: dict[str, SubjectScore] = {}
-
+    
     # 1. Chấm điểm từ khóa môn học
     _score_rules(keyword_rules, filename_text, "filename", filename_multiplier, scores)
     if filename_alias_rules:
         _score_filename_alias_rules(filename_alias_rules, filename_text, filename_multiplier, scores)
     _score_rules(keyword_rules, body_text, "body", body_multiplier, scores)
 
-    # 2. Chấm điểm từ khóa tiêu cực — tách riêng filename và body để cộng label_scores
-    filename_neg_total, filename_neg_evidence, filename_label_scores = _score_negative_rules(
+    # 2. Chấm điểm từ khóa tiêu cực chặn (Negative Rules)
+    filename_negative, filename_evidence = _score_negative_rules(
         negative_rules, filename_text, "filename", filename_multiplier
     )
-    body_neg_total, body_neg_evidence, body_label_scores = _score_negative_rules(
-        negative_rules, body_text, "body", body_multiplier
-    )
-
-    total_negative_score = filename_neg_total + body_neg_total
-    total_negative_evidence = filename_neg_evidence + body_neg_evidence
-
-    # Xác định nhóm negative thắng để dùng làm nhãn thư mục
-    winning_label = _resolve_winning_label(filename_label_scores, body_label_scores)
+    body_negative, body_evidence = _score_negative_rules(negative_rules, body_text, "body", body_multiplier)
+    
+    total_negative_score = filename_negative + body_negative
+    total_negative_evidence = filename_evidence + body_evidence
 
     # =========================================================================
-    # 🔥 BỘ LỌC CẢN PHÁN QUYẾT (VETO MECHANISM) — giữ nguyên logic cũ
+    # 🔥 CẢI TIẾN CỐT LÕI: BỘ LỌC CẢN PHÁN QUYẾT (VETO MECHANISM)
     # =========================================================================
+    
+    # Kiểm tra xem tài liệu có dính líu đến các từ khóa hành chính tối cao không
+    # Ví dụ: nếu trong file hành chính có từ khóa nặng >= 40 (như Hợp đồng, Phiếu đăng ký, Giấy chứng nhận)
     is_strong_administrative = any(ev.score >= 40.0 for ev in total_negative_evidence)
 
     if is_strong_administrative:
-        # Dùng winning_label thay vì hardcode _Khong_phai_mon_hoc
-        veto_label = winning_label or "_Khong_phai_mon_hoc"
-        veto_score = SubjectScore(subject=veto_label, score=999.0)
-        veto_score.evidence = total_negative_evidence
+        # Tạo điểm tối cao cho nhãn Không phải môn học để gạt giò hoàn toàn các môn khác
+        admin_score = SubjectScore(subject="_Khong_phai_mon_hoc", score=999.0)
+        admin_score.evidence = total_negative_evidence
         return ScoreResult(
-            scores={veto_label: veto_score},
+            scores={"_Khong_phai_mon_hoc": admin_score},
             negative_score=total_negative_score,
-            negative_evidence=total_negative_evidence,
-            winning_negative_label=veto_label,
+            negative_evidence=total_negative_evidence
         )
 
-    # Khấu trừ điểm phạt tuyến tính cho các trường hợp negative nhẹ
+    # Nếu dính từ khóa tiêu cực thể nhẹ (ví dụ danh sách niêm yết, thông báo tổng hợp...)
+    # Tiến hành trừ phạt điểm tuyến tính của các môn học hiện tại để tránh ăn may điểm thấp
     if total_negative_score > 0 and scores:
         filtered_scores: dict[str, SubjectScore] = {}
         for subj, subj_score in scores.items():
+            # Khấu trừ điểm phạt trực tiếp vào tổng điểm môn học
             adjusted_score = subj_score.score - total_negative_score
+            
+            # Nếu sau khi trừ, điểm vẫn lớn hơn ngưỡng an toàn (ví dụ: 10.0), ta mới giữ lại
             if adjusted_score > 10.0:
                 subj_score.score = adjusted_score
                 filtered_scores[subj] = subj_score
@@ -264,5 +233,4 @@ def score_document(
         scores=scores,
         negative_score=total_negative_score,
         negative_evidence=total_negative_evidence,
-        winning_negative_label=winning_label,
     )
