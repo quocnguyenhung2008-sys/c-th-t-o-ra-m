@@ -1,65 +1,264 @@
 {
   "non_subject": [
-
-    { "keyword": "hop dong", "weight": 50 },
-    { "keyword": "hợp đồng", "weight": 50 },
-    { "keyword": "hoa don", "weight": 50 },
-    { "keyword": "hóa đơn", "weight": 50 },
-    { "keyword": "phụ lục hợp đồng", "weight": 55 },
-    { "keyword": "phí môi giới", "weight": 55 },
-    { "keyword": "bên thanh toán", "weight": 50 },
-    { "keyword": "bên bán chuyển nhượng", "weight": 60 },
-    { "keyword": "văn bản từ chối", "weight": 60 },
-    { "keyword": "quyền ưu tiên mua nhà", "weight": 65 },
-    { "keyword": "bàn giao nhà", "weight": 55 },
-    { "keyword": "hợp đồng thuê", "weight": 50 },
-    { "keyword": "bảo hiểm xe máy", "weight": 60 },
-    { "keyword": "tổng phí bảo hiểm", "weight": 60 },
-    { "keyword": "phiếu đăng ký dự thi", "weight": 65 },
-    { "keyword": "sổ doanh thu bán hàng hóa dịch vụ", "weight": 70 },
-    { "keyword": "bao cao tai chinh", "weight": 55 },
-    { "keyword": "báo cáo tài chính", "weight": 55 },
-    { "keyword": "bang luong", "weight": 50 },
-    { "keyword": "bảng lương", "weight": 50 },
-    { "keyword": "danh sách niêm yết", "weight": 65 },
-    { "keyword": "ds niem yet thpt", "weight": 140 },
-    { "keyword": "ds niem yet", "weight": 120 },
-    { "keyword": "tt sbd ngày sinh hs trường ghi chú", "weight": 180 },
-    { "keyword": "kết quả chọn đội tuyển", "weight": 55 },
-    { "keyword": "kq thi chọn đội tuyển", "weight": 55 },
-
-    { "keyword": "bien ban", "weight": 35 },
-    { "keyword": "biên bản", "weight": 35 },
-    { "keyword": "so yeu ly lich", "weight": 35 },
-    { "keyword": "sơ yếu lý lịch", "weight": 35 },
-    { "keyword": "don xin", "weight": 25 },
-    { "keyword": "đơn xin", "weight": 25 },
-    { "keyword": "giấy chứng nhận", "weight": 35 },
-    { "keyword": "can cuoc cong dan", "weight": 35 },
-    { "keyword": "căn cước công dân", "weight": 35 },
-    { "keyword": "chung minh nhan dan", "weight": 35 },
-    { "keyword": "chứng minh nhân dân", "weight": 35 },
-    { "keyword": "bên giao giấy tờ", "weight": 35 },
-    { "keyword": "giao nhận giấy tờ", "weight": 35 },
-    { "keyword": "đặt cọc", "weight": 30 },
-    { "keyword": "biển kiểm soát", "weight": 35 },
-    { "keyword": "trách nhiệm dân sự", "weight": 35 },
-    { "keyword": "hộ kinh doanh", "weight": 35 },
-    { "keyword": "cá nhân kinh doanh", "weight": 35 },
-    { "keyword": "bộ trưởng bộ tài chính", "weight": 35 },
-    { "keyword": "ngày sinh hs trường", "weight": 30 },
-    { "keyword": "kết quả học sinh giỏi", "weight": 35 },
-    { "keyword": "kq hsg", "weight": 35 },
-
-    { "keyword": "ke hoach cong tac", "weight": 15 },
-    { "keyword": "kế hoạch công tác", "weight": 15 },
-    { "keyword": "thanh toán", "weight": 15 },
-    { "keyword": "mã số thuế", "weight": 15 },
-    { "keyword": "số tài khoản ngân hàng", "weight": 15 },
-    { "keyword": "thông tư số", "weight": 15 },
-    { "keyword": "số báo danh", "weight": 12 },
-    { "keyword": "kết quả thi", "weight": 12 },
-    { "keyword": "HĐ", "weight": 15 },
-    { "keyword": "hđ", "weight": 15 }
+    {
+      "keyword": "hop dong",
+      "weight": 50
+    },
+    {
+      "keyword": "hợp đồng",
+      "weight": 50
+    },
+    {
+      "keyword": "hoa don",
+      "weight": 50
+    },
+    {
+      "keyword": "hóa đơn",
+      "weight": 50
+    },
+    {
+      "keyword": "phụ lục hợp đồng",
+      "weight": 55
+    },
+    {
+      "keyword": "phí môi giới",
+      "weight": 55
+    },
+    {
+      "keyword": "bên thanh toán",
+      "weight": 50
+    },
+    {
+      "keyword": "bên bán chuyển nhượng",
+      "weight": 60
+    },
+    {
+      "keyword": "văn bản từ chối",
+      "weight": 60
+    },
+    {
+      "keyword": "quyền ưu tiên mua nhà",
+      "weight": 65
+    },
+    {
+      "keyword": "bàn giao nhà",
+      "weight": 55
+    },
+    {
+      "keyword": "hợp đồng thuê",
+      "weight": 50
+    },
+    {
+      "keyword": "bảo hiểm xe máy",
+      "weight": 60
+    },
+    {
+      "keyword": "tổng phí bảo hiểm",
+      "weight": 60
+    },
+    {
+      "keyword": "phiếu đăng ký dự thi",
+      "weight": 65
+    },
+    {
+      "keyword": "sổ doanh thu bán hàng hóa dịch vụ",
+      "weight": 70
+    },
+    {
+      "keyword": "bao cao tai chinh",
+      "weight": 55
+    },
+    {
+      "keyword": "báo cáo tài chính",
+      "weight": 55
+    },
+    {
+      "keyword": "bang luong",
+      "weight": 50
+    },
+    {
+      "keyword": "bảng lương",
+      "weight": 50
+    },
+    {
+      "keyword": "danh sách niêm yết",
+      "weight": 65
+    },
+    {
+      "keyword": "ds niem yet thpt",
+      "weight": 140
+    },
+    {
+      "keyword": "ds niem yet",
+      "weight": 120
+    },
+    {
+      "keyword": "tt sbd ngày sinh hs trường ghi chú",
+      "weight": 180
+    },
+    {
+      "keyword": "kết quả chọn đội tuyển",
+      "weight": 55
+    },
+    {
+      "keyword": "kq thi chọn đội tuyển",
+      "weight": 55
+    },
+    {
+      "keyword": "bien ban",
+      "weight": 35
+    },
+    {
+      "keyword": "biên bản",
+      "weight": 35
+    },
+    {
+      "keyword": "so yeu ly lich",
+      "weight": 35
+    },
+    {
+      "keyword": "sơ yếu lý lịch",
+      "weight": 35
+    },
+    {
+      "keyword": "don xin",
+      "weight": 25
+    },
+    {
+      "keyword": "đơn xin",
+      "weight": 25
+    },
+    {
+      "keyword": "giấy chứng nhận",
+      "weight": 35
+    },
+    {
+      "keyword": "can cuoc cong dan",
+      "weight": 35
+    },
+    {
+      "keyword": "căn cước công dân",
+      "weight": 35
+    },
+    {
+      "keyword": "chung minh nhan dan",
+      "weight": 35
+    },
+    {
+      "keyword": "chứng minh nhân dân",
+      "weight": 35
+    },
+    {
+      "keyword": "bên giao giấy tờ",
+      "weight": 35
+    },
+    {
+      "keyword": "giao nhận giấy tờ",
+      "weight": 35
+    },
+    {
+      "keyword": "đặt cọc",
+      "weight": 30
+    },
+    {
+      "keyword": "biển kiểm soát",
+      "weight": 35
+    },
+    {
+      "keyword": "trách nhiệm dân sự",
+      "weight": 35
+    },
+    {
+      "keyword": "hộ kinh doanh",
+      "weight": 35
+    },
+    {
+      "keyword": "cá nhân kinh doanh",
+      "weight": 35
+    },
+    {
+      "keyword": "bộ trưởng bộ tài chính",
+      "weight": 35
+    },
+    {
+      "keyword": "ngày sinh hs trường",
+      "weight": 30
+    },
+    {
+      "keyword": "kết quả học sinh giỏi",
+      "weight": 35
+    },
+    {
+      "keyword": "kq hsg",
+      "weight": 35
+    },
+    {
+      "keyword": "ke hoach cong tac",
+      "weight": 15
+    },
+    {
+      "keyword": "kế hoạch công tác",
+      "weight": 15
+    },
+    {
+      "keyword": "thanh toán",
+      "weight": 15
+    },
+    {
+      "keyword": "mã số thuế",
+      "weight": 15
+    },
+    {
+      "keyword": "số tài khoản ngân hàng",
+      "weight": 15
+    },
+    {
+      "keyword": "thông tư số",
+      "weight": 15
+    },
+    {
+      "keyword": "số báo danh",
+      "weight": 12
+    },
+    {
+      "keyword": "kết quả thi",
+      "weight": 12
+    },
+    {
+      "keyword": "HĐ",
+      "weight": 15
+    },
+    {
+      "keyword": "hđ",
+      "weight": 15
+    },
+    {
+      "keyword": "lịch kiểm tra học kỳ",
+      "weight": 28
+    },
+    {
+      "keyword": "lịch thi học kỳ",
+      "weight": 28
+    },
+    {
+      "keyword": "giờ phát đề",
+      "weight": 24
+    },
+    {
+      "keyword": "giờ bắt đầu làm bài",
+      "weight": 24
+    },
+    {
+      "keyword": "hết giờ làm bài",
+      "weight": 24
+    },
+    {
+      "keyword": "điều chỉnh lịch thi",
+      "weight": 22
+    },
+    {
+      "keyword": "lịch kiểm tra hk",
+      "weight": 26
+    }
   ]
 }

@@ -797,6 +797,118 @@
     {
       "keyword": "môn lí",
       "weight": 48
+    },
+    {
+      "keyword": "nhiệt động lực học",
+      "weight": 18
+    },
+    {
+      "keyword": "định luật i nhiệt động lực học",
+      "weight": 20
+    },
+    {
+      "keyword": "sự chuyển thể",
+      "weight": 16
+    },
+    {
+      "keyword": "nóng chảy",
+      "weight": 13
+    },
+    {
+      "keyword": "đông đặc",
+      "weight": 13
+    },
+    {
+      "keyword": "bay hơi",
+      "weight": 13
+    },
+    {
+      "keyword": "hóa hơi",
+      "weight": 13
+    },
+    {
+      "keyword": "ngưng tụ",
+      "weight": 13
+    },
+    {
+      "keyword": "thăng hoa",
+      "weight": 14
+    },
+    {
+      "keyword": "nhiệt dung riêng",
+      "weight": 16
+    },
+    {
+      "keyword": "nhiệt nóng chảy riêng",
+      "weight": 16
+    },
+    {
+      "keyword": "nhiệt hóa hơi riêng",
+      "weight": 16
+    },
+    {
+      "keyword": "thang nhiệt độ",
+      "weight": 14
+    },
+    {
+      "keyword": "celsius",
+      "weight": 12
+    },
+    {
+      "keyword": "kelvin",
+      "weight": 12
+    },
+    {
+      "keyword": "fahrenheit",
+      "weight": 12
+    },
+    {
+      "keyword": "nhiệt kế",
+      "weight": 12
+    },
+    {
+      "keyword": "truyền nhiệt",
+      "weight": 14
+    },
+    {
+      "keyword": "động cơ nhiệt",
+      "weight": 16
+    },
+    {
+      "keyword": "hiệu suất động cơ",
+      "weight": 14
+    },
+    {
+      "keyword": "chất rắn kết tinh",
+      "weight": 14
+    },
+    {
+      "keyword": "chất rắn vô định hình",
+      "weight": 14
+    },
+    {
+      "keyword": "thế năng phân tử",
+      "weight": 14
+    },
+    {
+      "keyword": "động năng phân tử",
+      "weight": 14
+    },
+    {
+      "keyword": "bảng đáp án vật lý",
+      "weight": 36
+    },
+    {
+      "keyword": "bảng đáp án vật lí",
+      "weight": 36
+    },
+    {
+      "keyword": "đáp án tư duy nhiệt",
+      "weight": 44
+    },
+    {
+      "keyword": "năng suất tỏa nhiệt",
+      "weight": 16
     }
   ],
   "Hoa_hoc": [
@@ -1618,7 +1730,7 @@
     },
     {
       "keyword": "môn văn",
-      "weight": 18
+      "weight": 48
     },
     {
       "keyword": "môn ngữ văn",
@@ -1961,10 +2073,6 @@
       "weight": 38
     },
     {
-      "keyword": "môn văn",
-      "weight": 48
-    },
-    {
       "keyword": "toàn cầu hóa và hội nhập quốc tế",
       "weight": 52
     },
@@ -1983,6 +2091,366 @@
     {
       "keyword": "tạp chí cộng sản",
       "weight": 32
+    },
+    {
+      "keyword": "Lục Vân Tiên",
+      "weight": 18
+    },
+    {
+      "keyword": "Kiều Nguyệt Nga",
+      "weight": 18
+    },
+    {
+      "keyword": "Nguyễn Đình Chiểu",
+      "weight": 16
+    },
+    {
+      "keyword": "LVT KNN",
+      "weight": 22
+    },
+    {
+      "keyword": "nghĩa hiệp",
+      "weight": 14
+    },
+    {
+      "keyword": "đạo đức phong kiến",
+      "weight": 12
+    },
+    {
+      "keyword": "tình yêu thủy chung",
+      "weight": 12
+    },
+    {
+      "keyword": "bài tranh luận",
+      "weight": 18
+    },
+    {
+      "keyword": "tranh luận",
+      "weight": 12
+    },
+    {
+      "keyword": "chọn nghề chọn trường",
+      "weight": 16
+    },
+    {
+      "keyword": "năng lực hứng thú cá nhân",
+      "weight": 14
+    },
+    {
+      "keyword": "nghị luận về tác phẩm",
+      "weight": 14
+    },
+    {
+      "keyword": "bức tranh nổi tiếng",
+      "weight": 14
+    },
+    {
+      "keyword": "phân tích bức tranh",
+      "weight": 14
+    },
+    {
+      "keyword": "bài thuyết trình nghị luận",
+      "weight": 16
+    },
+    {
+      "keyword": "thông điệp nhân văn",
+      "weight": 12
+    },
+    {
+      "keyword": "giữa học kì ngữ văn",
+      "weight": 36
+    },
+    {
+      "keyword": "kiểm tra giữa học kì ngữ văn",
+      "weight": 38
+    },
+    {
+      "keyword": "Bài Nghị Luận - Ý Kiến Trái Ngược .pdf",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Bài thuyết trình nghị luận về một bức tranh nổi tiếng(NGOẠI LAI) (1).docx",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Bài thuyết trình nghị luận về một bức tranh nổi tiếng(NGOẠI LAI) (2).docx",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Bài thuyết trình nghị luận về một bức tranh nổi tiếng(NGOẠI LAI) (2).pdf",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Bài thuyết trình nghị luận về một bức tranh nổi tiếng(NGOẠI LAI).docx",
+      "weight": 10.0
+    },
+    {
+      "keyword": "CD_2_Mua_Do.pdf",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Dàn ý HỒN TRƯƠNG BA (1).docx",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Dàn ý HỒN TRƯƠNG BA.docx",
+      "weight": 10.0
+    },
+    {
+      "keyword": "De on TN t5",
+      "weight": 10.0
+    },
+    {
+      "keyword": "2026 (kđa).docx",
+      "weight": 10.0
+    },
+    {
+      "keyword": "ĐỀ THI THỬ HK II",
+      "weight": 10.0
+    },
+    {
+      "keyword": "kda.docx",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Ivan bạo chúa và con trai",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Sa hoàng Ivan IV",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Ilya Repin",
+      "weight": 10.0
+    },
+    {
+      "keyword": "hội họa hiện thực",
+      "weight": 10.0
+    },
+    {
+      "keyword": "chủ nghĩa biểu cảm",
+      "weight": 10.0
+    },
+    {
+      "keyword": "tranh sơn dầu",
+      "weight": 10.0
+    },
+    {
+      "keyword": "tình phụ tử",
+      "weight": 10.0
+    },
+    {
+      "keyword": "bản án lương tâm",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Mưa đỏ",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Đặng Thái Huyền",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Chu Lai",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Thành cổ Quảng Trị",
+      "weight": 10.0
+    },
+    {
+      "keyword": "chuyển thể điện ảnh",
+      "weight": 10.0
+    },
+    {
+      "keyword": "biểu tượng nghệ thuật",
+      "weight": 10.0
+    },
+    {
+      "keyword": "hòa hợp dân tộc",
+      "weight": 10.0
+    },
+    {
+      "keyword": "nhân vật Sen",
+      "weight": 10.0
+    },
+    {
+      "keyword": "nhân vật Tạ",
+      "weight": 10.0
+    },
+    {
+      "keyword": "phim bom tấn",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Bông Sen Vàng",
+      "weight": 10.0
+    },
+    {
+      "keyword": "kịch Lưu Quang Vũ",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Hồn Trương Ba da hàng thịt",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Trương Ba",
+      "weight": 10.0
+    },
+    {
+      "keyword": "đế Thích",
+      "weight": 10.0
+    },
+    {
+      "keyword": "xác hàng thịt",
+      "weight": 10.0
+    },
+    {
+      "keyword": "xung đột hồn xác",
+      "weight": 10.0
+    },
+    {
+      "keyword": "tha hóa",
+      "weight": 10.0
+    },
+    {
+      "keyword": "phẩm giá con người",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Đặng Hoàng Giang",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Bức xúc không làm ta vô can",
+      "weight": 10.0
+    },
+    {
+      "keyword": "trạng thái tinh thần độc lập",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Thư của cha",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Nguyên Hương",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Văn học tuổi 20",
+      "weight": 10.0
+    },
+    {
+      "keyword": "phân tích bài thơ",
+      "weight": 10.0
+    },
+    {
+      "keyword": "so sánh hai đoạn thơ",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Thu Huy Cận",
+      "weight": 10.0
+    },
+    {
+      "keyword": "phong trào Thơ Mới",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Hoa cỏ may Xuân Quỳnh",
+      "weight": 10.0
+    },
+    {
+      "keyword": "thơ trẻ thời kỳ chống Mỹ",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Bến thời gian",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Tạ Duy Anh",
+      "weight": 10.0
+    },
+    {
+      "keyword": "nhân vật bà Hảo",
+      "weight": 10.0
+    },
+    {
+      "keyword": "ngôn ngữ nói",
+      "weight": 10.0
+    },
+    {
+      "keyword": "kí ức tuổi thơ",
+      "weight": 10.0
+    },
+    {
+      "keyword": "giá trị sống đích thực",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Sao kê tình thương",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Thanh Nguyễn",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Ủy ban Mặt trận Tổ quốc Việt Nam",
+      "weight": 10.0
+    },
+    {
+      "keyword": "từ thiện cứu trợ",
+      "weight": 10.0
+    },
+    {
+      "keyword": "phông bạt từ thiện",
+      "weight": 10.0
+    },
+    {
+      "keyword": "trung thực",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Ba đồng một mớ mộng mơ",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Nguyễn Ngọc Tư",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Gió lẻ và 9 câu chuyện khác",
+      "weight": 10.0
+    },
+    {
+      "keyword": "phận người bất hạnh",
+      "weight": 10.0
+    },
+    {
+      "keyword": "ảo tưởng tình cảm",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Màu của lửa",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Lê Quang Trạng",
+      "weight": 10.0
+    },
+    {
+      "keyword": "lối sống trách nhiệm",
+      "weight": 10.0
+    },
+    {
+      "keyword": "biết tự chủ trong cuộc sống",
+      "weight": 10.0
     }
   ],
   "Lich_su": [
@@ -2761,20 +3229,212 @@
     {
       "keyword": "môn anh",
       "weight": 48
+    },
+    {
+      "keyword": "mark the letter a, b, c, or d",
+      "weight": 18
+    },
+    {
+      "keyword": "indicate the word whose underlined part",
+      "weight": 18
+    },
+    {
+      "keyword": "indicate the correct answer",
+      "weight": 16
+    },
+    {
+      "keyword": "indicate the correct option",
+      "weight": 16
+    },
+    {
+      "keyword": "indicate the correct arrangement",
+      "weight": 16
+    },
+    {
+      "keyword": "read the following passage",
+      "weight": 16
+    },
+    {
+      "keyword": "read the following advertisement",
+      "weight": 16
+    },
+    {
+      "keyword": "school announcement",
+      "weight": 14
+    },
+    {
+      "keyword": "position of primary stress",
+      "weight": 16
+    },
+    {
+      "keyword": "choose the best answer",
+      "weight": 14
+    },
+    {
+      "keyword": "fill in the blank",
+      "weight": 13
+    },
+    {
+      "keyword": "gerund",
+      "weight": 12
+    },
+    {
+      "keyword": "infinitive",
+      "weight": 12
+    },
+    {
+      "keyword": "greenhouse gas",
+      "weight": 11
+    },
+    {
+      "keyword": "renewable energy",
+      "weight": 11
+    },
+    {
+      "keyword": "climate change",
+      "weight": 10
+    },
+    {
+      "keyword": "global warming",
+      "weight": 10
+    },
+    {
+      "keyword": "grade 11 english",
+      "weight": 18
+    },
+    {
+      "keyword": "grade 12 english",
+      "weight": 18
+    },
+    {
+      "keyword": "practice test english",
+      "weight": 16
+    },
+    {
+      "keyword": "reading passage comprehension",
+      "weight": 14
+    },
+    {
+      "keyword": "text completion",
+      "weight": 12
+    },
+    {
+      "keyword": "discourse marker",
+      "weight": 13
+    },
+    {
+      "keyword": "ma trận đề kiểm tra tiếng anh",
+      "weight": 52
+    },
+    {
+      "keyword": "đặc tả đề kiểm tra tiếng anh",
+      "weight": 50
+    },
+    {
+      "keyword": "bảng đặc tả tiếng anh",
+      "weight": 48
+    },
+    {
+      "keyword": "kỹ năng đọc hiểu tiếng anh",
+      "weight": 28
+    },
+    {
+      "keyword": "ngữ pháp và từ vựng",
+      "weight": 22
+    },
+    {
+      "keyword": "thì của động từ",
+      "weight": 20
+    },
+    {
+      "keyword": "thì quá khứ đơn",
+      "weight": 16
+    },
+    {
+      "keyword": "đại từ quan hệ",
+      "weight": 18
+    },
+    {
+      "keyword": "lượng từ",
+      "weight": 14
+    },
+    {
+      "keyword": "word form",
+      "weight": 18
+    },
+    {
+      "keyword": "liên từ",
+      "weight": 14
+    },
+    {
+      "keyword": "trật tự tính từ",
+      "weight": 16
+    },
+    {
+      "keyword": "đọc điền từ",
+      "weight": 20
+    },
+    {
+      "keyword": "sắp xếp đoạn văn",
+      "weight": 16
+    },
+    {
+      "keyword": "điền câu vào đoạn văn",
+      "weight": 16
+    },
+    {
+      "keyword": "paraphrase",
+      "weight": 16
+    },
+    {
+      "keyword": "từ đồng nghĩa",
+      "weight": 14
+    },
+    {
+      "keyword": "từ trái nghĩa",
+      "weight": 14
+    },
+    {
+      "keyword": "đại từ thay thế",
+      "weight": 14
+    },
+    {
+      "keyword": "câu hỏi suy luận",
+      "weight": 14
+    },
+    {
+      "keyword": "ý chính đoạn văn",
+      "weight": 14
+    },
+    {
+      "keyword": "ý chính toàn bài",
+      "weight": 14
+    },
+    {
+      "keyword": "not mentioned",
+      "weight": 16
+    },
+    {
+      "keyword": "giữa học kì tiếng anh",
+      "weight": 36
+    },
+    {
+      "keyword": "kiểm tra giữa học kì tiếng anh",
+      "weight": 38
     }
   ],
   "Tin_hoc": [
     {
       "keyword": "tin học",
-      "weight": 16
+      "weight": 44
     },
     {
       "keyword": "môn tin",
-      "weight": 18
+      "weight": 48
     },
     {
       "keyword": "môn tin học",
-      "weight": 18
+      "weight": 56
     },
     {
       "keyword": "informatics",
@@ -2790,7 +3450,7 @@
     },
     {
       "keyword": "thuật toán",
-      "weight": 14
+      "weight": 34
     },
     {
       "keyword": "vòng lặp for",
@@ -2882,7 +3542,7 @@
     },
     {
       "keyword": "độ phức tạp thuật toán",
-      "weight": 14
+      "weight": 46
     },
     {
       "keyword": "cơ sở dữ liệu",
@@ -2989,8 +3649,12 @@
       "weight": 13
     },
     {
-      "keyword": "đạo đức, pháp luật và văn hóa trong môi trường số",
-      "weight": 15
+      "keyword": "đạo đức",
+      "weight": 10.0
+    },
+    {
+      "keyword": "pháp luật và văn hóa trong môi trường số",
+      "weight": 10.0
     },
     {
       "keyword": "dữ liệu và thông tin",
@@ -3063,14 +3727,6 @@
     {
       "keyword": "kiểm thử chương trình",
       "weight": 13
-    },
-    {
-      "keyword": "tin học",
-      "weight": 44
-    },
-    {
-      "keyword": "môn tin học",
-      "weight": 56
     },
     {
       "keyword": "thi thử voi",
@@ -3153,14 +3809,6 @@
       "weight": 32
     },
     {
-      "keyword": "độ phức tạp thuật toán",
-      "weight": 46
-    },
-    {
-      "keyword": "thuật toán",
-      "weight": 34
-    },
-    {
       "keyword": "dãy số nguyên",
       "weight": 28
     },
@@ -3171,10 +3819,6 @@
     {
       "keyword": "tin",
       "weight": 30
-    },
-    {
-      "keyword": "môn tin",
-      "weight": 48
     },
     {
       "keyword": "khối không chuyên tin",
@@ -3207,6 +3851,226 @@
     {
       "keyword": "bài lập trình",
       "weight": 42
+    },
+    {
+      "keyword": "tin học trẻ",
+      "weight": 60
+    },
+    {
+      "keyword": "hội thi tin học trẻ",
+      "weight": 64
+    },
+    {
+      "keyword": "hội thi lập trình trẻ",
+      "weight": 60
+    },
+    {
+      "keyword": "lần test",
+      "weight": 36
+    },
+    {
+      "keyword": "thang điểm và hướng dẫn chấm",
+      "weight": 56
+    },
+    {
+      "keyword": "hướng dẫn chấm tin học",
+      "weight": 52
+    },
+    {
+      "keyword": "bảng a",
+      "weight": 28
+    },
+    {
+      "keyword": "bảng b",
+      "weight": 28
+    },
+    {
+      "keyword": "nhập vào",
+      "weight": 22
+    },
+    {
+      "keyword": "xuất ra",
+      "weight": 22
+    },
+    {
+      "keyword": "dữ liệu nhập",
+      "weight": 28
+    },
+    {
+      "keyword": "dữ liệu xuất",
+      "weight": 28
+    },
+    {
+      "keyword": "ký tự",
+      "weight": 14
+    },
+    {
+      "keyword": "chuỗi ký tự",
+      "weight": 22
+    },
+    {
+      "keyword": "số nguyên dương",
+      "weight": 18
+    },
+    {
+      "keyword": "số nguyên âm",
+      "weight": 16
+    },
+    {
+      "keyword": "số nguyên n",
+      "weight": 16
+    },
+    {
+      "keyword": "bội chung nhỏ nhất",
+      "weight": 22
+    },
+    {
+      "keyword": "ước chung lớn nhất",
+      "weight": 22
+    },
+    {
+      "keyword": "số nguyên tố",
+      "weight": 20
+    },
+    {
+      "keyword": "phần tử mảng",
+      "weight": 20
+    },
+    {
+      "keyword": "vị trí phần tử",
+      "weight": 18
+    },
+    {
+      "keyword": "đếm số lần xuất hiện",
+      "weight": 24
+    },
+    {
+      "keyword": "câu lập trình",
+      "weight": 30
+    },
+    {
+      "keyword": "chương trình pascal",
+      "weight": 22
+    },
+    {
+      "keyword": "chương trình python",
+      "weight": 22
+    },
+    {
+      "keyword": "quy hoạch động",
+      "weight": 10.0
+    },
+    {
+      "keyword": "tín hiệu tương tự",
+      "weight": 10.0
+    },
+    {
+      "keyword": "tín hiệu số",
+      "weight": 10.0
+    },
+    {
+      "keyword": "xung vuông",
+      "weight": 10.0
+    },
+    {
+      "keyword": "mức điện áp",
+      "weight": 10.0
+    },
+    {
+      "keyword": "nhiễu tín hiệu",
+      "weight": 10.0
+    },
+    {
+      "keyword": "truyền dữ liệu",
+      "weight": 10.0
+    },
+    {
+      "keyword": "nén dữ liệu",
+      "weight": 10.0
+    },
+    {
+      "keyword": "nhận diện khuôn mặt",
+      "weight": 10.0
+    },
+    {
+      "keyword": "nhận dạng khuôn mặt",
+      "weight": 10.0
+    },
+    {
+      "keyword": "xử lý ảnh",
+      "weight": 10.0
+    },
+    {
+      "keyword": "hệ thống nhúng",
+      "weight": 10.0
+    },
+    {
+      "keyword": "BigData",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Arduino",
+      "weight": 10.0
+    },
+    {
+      "keyword": "ESP32",
+      "weight": 10.0
+    },
+    {
+      "keyword": "ESP32-Cam",
+      "weight": 10.0
+    },
+    {
+      "keyword": "OpenCV",
+      "weight": 10.0
+    },
+    {
+      "keyword": "face_recognition",
+      "weight": 10.0
+    },
+    {
+      "keyword": "SQLite",
+      "weight": 10.0
+    },
+    {
+      "keyword": "Wi-Fi",
+      "weight": 10.0
+    },
+    {
+      "keyword": "mạng nội bộ",
+      "weight": 10.0
+    },
+    {
+      "keyword": "trích xuất dữ liệu",
+      "weight": 10.0
+    },
+    {
+      "keyword": "cấu hình thiết bị",
+      "weight": 10.0
+    },
+    {
+      "keyword": "camera_fb_t",
+      "weight": 10.0
+    },
+    {
+      "keyword": "HTTPClient",
+      "weight": 10.0
+    },
+    {
+      "keyword": "JSON",
+      "weight": 10.0
+    },
+    {
+      "keyword": "ArduinoJson",
+      "weight": 10.0
+    },
+    {
+      "keyword": "nút bấm polling",
+      "weight": 10.0
+    },
+    {
+      "keyword": "chu kỳ sóng",
+      "weight": 10.0
     }
   ],
   "GDCD": [

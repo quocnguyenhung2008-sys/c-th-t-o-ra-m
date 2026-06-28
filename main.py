@@ -1,6 +1,11 @@
 from __future__ import annotations
 
 import argparse
+import multiprocessing
+import os
+import sys
+import time
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from dataclasses import replace
 from pathlib import Path
 
@@ -76,6 +81,25 @@ def build_parser() -> argparse.ArgumentParser:
         help="Loai mot mon khoi ket qua, vi du --exclude-subject Dia_ly. Co the dung nhieu lan.",
     )
     parser.add_argument("--report-name", default="classification_report.csv", help="Ten file bao cao CSV.")
+
+    # === macOS / Apple Silicon optimization ===
+    _default_workers = max(1, (os.cpu_count() or 4) - 1)
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=_default_workers,
+        help=f"So worker song song (mac dinh: {_default_workers}). Apple M-series co the tang len 8+.",
+    )
+    parser.add_argument(
+        "--no-parallel",
+        action="store_true",
+        help="Tat xu ly song song. Dung khi debug hoac OCR backend co xung dot.",
+    )
+    parser.add_argument(
+        "--show-progress",
+        action="store_true",
+        help="Hien thi tien trinh don gian khi xu ly nhieu file.",
+    )
     return parser
 
 
@@ -120,6 +144,43 @@ def config_from_args(args: argparse.Namespace) -> ClassificationConfig:
     )
 
 
+def _detect_hardware_info(ocr_backend: str) -> str:
+    """Phát hiện GPU/MPS/CPU và trả về chuỗi mô tả để log. Hỗ trợ Apple Silicon MPS."""
+    if ocr_backend == "none":
+        return ""
+    try:
+        import torch
+        if torch.backends.mps.is_available():
+            # Apple Silicon M-series: dùng Metal Performance Shaders thay CUDA
+            return f"[+] Apple Silicon MPS (Metal) sẵn sàng cho EasyOCR — {torch.backends.mps.is_built()}"
+        if torch.cuda.is_available():
+            return f"[+] GPU CUDA: {torch.cuda.get_device_name(0)}"
+        return "[-] Không có GPU phù hợp — chạy bằng CPU (chậm hơn)."
+    except ImportError:
+        return "[!] Thư viện torch chưa được cài đặt."
+
+
+def _classify_one(args_tuple: tuple) -> tuple:
+    """Worker function cho ProcessPoolExecutor — mỗi process tự khởi tạo classifier riêng."""
+    path, config = args_tuple
+    classifier = DocumentClassifier(config)
+    return classifier.classify(path)
+
+
+def _print_progress(done: int, total: int, width: int = 30) -> None:
+    """In thanh tiến trình đơn giản kiểu macOS terminal."""
+    if total == 0:
+        return
+    ratio = done / total
+    filled = int(ratio * width)
+    bar = "█" * filled + "░" * (width - filled)
+    pct = ratio * 100
+    sys.stdout.write(f"\r  [{bar}] {done}/{total} ({pct:.0f}%)")
+    sys.stdout.flush()
+    if done == total:
+        sys.stdout.write("\n")
+
+
 def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
@@ -130,46 +191,153 @@ def main() -> int:
     if not input_dir.exists() or not input_dir.is_dir():
         parser.error(f"Input directory does not exist: {input_dir}")
 
-    # TỐI ƯU HIỂN THỊ: Kiểm tra và thông báo trạng thái phần cứng lúc khởi động app
-    if config.ocr_backend != "none":
-        print(f"[*] OCR Backend đang chọn: {config.ocr_backend.upper()}")
-        try:
-            if config.ocr_backend == "easyocr":
-                import torch
-                if torch.cuda.is_available():
-                    print(f"[+] Đã kích hoạt tăng tốc phần cứng GPU: {torch.cuda.get_device_name(0)}")
-                else:
-                    print("[-] CẢNH BÁO: Không tìm thấy GPU CUDA thích hợp. Hệ thống sẽ chạy chậm bằng CPU.")
-            elif config.ocr_backend == "paddleocr":
-                import paddle
-                if paddle.is_compiled_with_cuda() and paddle.device.cuda.device_count() > 0:
-                    print("[+] Đã kích hoạt tăng tốc phần cứng GPU thành công cho PaddleOCR.")
-                else:
-                    print("[-] CẢNH BÁO: PaddlePaddle chưa kích hoạt CUDA. Hệ thống sẽ chạy chậm bằng CPU.")
-        except ImportError:
-            print("[!] Thư viện OCR chưa được cài đặt hoàn chỉnh.")
+    # ── Thông tin phần cứng ──────────────────────────────────────────────────
+    hw_info = _detect_hardware_info(config.ocr_backend)
+    if hw_info:
+        print(f"[*] OCR Backend: {config.ocr_backend.upper()}")
+        print(hw_info)
 
-    classifier = DocumentClassifier(config)
-    rows = []
+    # ── Khám phá file ────────────────────────────────────────────────────────
     files = discover_files(input_dir, config, exclude_roots=(output_dir,))
-    
-    # Bắt đầu vòng lặp quét qua danh sách file
-    for path in files:
-        classification = classifier.classify(path)
-        move_result = place_file(classification, output_dir, config)
-        rows.append((classification, move_result))
-        print(
-            f"{path.name} -> {classification.target_label} "
-            f"({classification.status.value}, score={classification.score:.1f}, action={move_result.action})"
-        )
+    total = len(files)
+    if total == 0:
+        print("Không tìm thấy file nào để phân loại.")
+        return 0
 
+    # ── Quyết định chế độ xử lý ──────────────────────────────────────────────
+    # OCR backend không an toàn với multiprocessing do model nặng → fallback tuần tự
+    use_parallel = (
+        not args.no_parallel
+        and config.ocr_backend == "none"   # OCR backends không fork-safe
+        and total > 1
+        and args.workers > 1
+    )
+
+    n_workers = min(args.workers, total)
+    show_progress = args.show_progress or (total >= 10 and sys.stdout.isatty())
+
+    t0 = time.perf_counter()
+
+    if use_parallel:
+        print(f"[*] Chạy song song với {n_workers} worker(s) / {total} file(s)...")
+        rows = _run_parallel(files, config, output_dir, n_workers, show_progress)
+    else:
+        if not args.no_parallel and config.ocr_backend != "none":
+            print("[*] OCR đang bật → chạy tuần tự để tránh xung đột bộ nhớ GPU.")
+        else:
+            print(f"[*] Chạy tuần tự / {total} file(s)...")
+        rows = _run_sequential(files, config, output_dir, show_progress)
+
+    elapsed = time.perf_counter() - t0
+
+    # ── Báo cáo kết quả ──────────────────────────────────────────────────────
     report_path = output_dir / config.report_name
     if not config.dry_run:
         write_report(report_path, rows)
-        print(f"Report: {report_path}")
-    else:
-        print(f"Dry run complete. {len(rows)} files evaluated.")
+
+    # Thống kê phân loại
+    from docsorter.classifier import ClassificationStatus
+    by_status: dict[str, int] = {}
+    for cls, _ in rows:
+        key = cls.target_label if cls.status == ClassificationStatus.SUBJECT else f"_{cls.status.value}"
+        by_status[key] = by_status.get(key, 0) + 1
+
+    print(f"\n{'─'*50}")
+    print(f"  Hoàn thành: {total} file(s) trong {elapsed:.1f}s "
+          f"({total/elapsed:.1f} file/s)" if elapsed > 0 else f"  Hoàn thành: {total} file(s)")
+    print(f"  Kết quả:")
+    for label, count in sorted(by_status.items(), key=lambda x: -x[1]):
+        print(f"    {label}: {count}")
+    if not config.dry_run:
+        print(f"  Báo cáo: {report_path}")
+    print(f"{'─'*50}")
     return 0
+
+
+def _run_sequential(
+    files: list[Path],
+    config: ClassificationConfig,
+    output_dir: Path,
+    show_progress: bool,
+) -> list[tuple]:
+    """Chạy tuần tự — an toàn với OCR, debug dễ hơn."""
+    classifier = DocumentClassifier(config)
+    rows = []
+    for i, path in enumerate(files, 1):
+        classification = classifier.classify(path)
+        move_result = place_file(classification, output_dir, config)
+        rows.append((classification, move_result))
+        if show_progress:
+            _print_progress(i, len(files))
+        else:
+            print(
+                f"  {path.name} → {classification.target_label} "
+                f"(score={classification.score:.1f}, {move_result.action})"
+            )
+    return rows
+
+
+def _run_parallel(
+    files: list[Path],
+    config: ClassificationConfig,
+    output_dir: Path,
+    n_workers: int,
+    show_progress: bool,
+) -> list[tuple]:
+    """
+    Chạy song song dùng ProcessPoolExecutor.
+    Mỗi worker là process độc lập → tận dụng tối đa Apple Silicon Performance Cores.
+    Spawn context an toàn hơn fork trên macOS (tránh lỗi Objective-C runtime).
+    """
+    # macOS dùng "spawn" thay "fork" — quan trọng vì fork + ObjC runtime = crash
+    ctx = multiprocessing.get_context("spawn")
+    args_list = [(path, config) for path in files]
+    results: dict[Path, object] = {}
+
+    with ProcessPoolExecutor(max_workers=n_workers, mp_context=ctx) as executor:
+        future_to_path = {
+            executor.submit(_classify_one, arg): arg[0]
+            for arg in args_list
+        }
+        done_count = 0
+        for future in as_completed(future_to_path):
+            path = future_to_path[future]
+            done_count += 1
+            try:
+                classification = future.result()
+                results[path] = classification
+            except Exception as exc:
+                # Worker crash → fallback classification với status ERROR
+                from docsorter.classifier import ClassificationStatus, DocumentClassification
+                results[path] = DocumentClassification(
+                    path=path,
+                    status=ClassificationStatus.ERROR,
+                    target_label="_Khong_xac_dinh",
+                    score=0.0,
+                    runner_up_score=0.0,
+                    negative_score=0.0,
+                    evidence=[],
+                    pages_sampled=[],
+                    extraction_engine="error",
+                    ocr_used=False,
+                    error=str(exc),
+                )
+            if show_progress:
+                _print_progress(done_count, len(files))
+            else:
+                cls = results[path]
+                print(
+                    f"  {path.name} → {cls.target_label} "
+                    f"(score={cls.score:.1f})"
+                )
+
+    # Ghi file sau khi tất cả worker xong (tránh race condition)
+    rows = []
+    for path in files:
+        classification = results[path]
+        move_result = place_file(classification, output_dir, config)
+        rows.append((classification, move_result))
+    return rows
 
 
 if __name__ == "__main__":
