@@ -225,6 +225,27 @@ class DocumentClassifier:
         runner_up_score = ranked[1].score if len(ranked) > 1 else 0.0
         margin = top.score - runner_up_score
 
+        # ── ĐỀ THI: Xử lý logic đặc biệt ────────────────────────────────
+        # Nguyên tắc: "Đề thi" phải đủ ngưỡng CAO hơn để xác nhận.
+        # Ngăn tài liệu học bình thường bị nhầm vào thư mục Đề thi.
+        if top.subject == "De_thi":
+            if top.score < self.config.de_thi_min_score:
+                # Điểm De_thi không đủ ngưỡng riêng → xét môn học tiếp theo
+                if len(ranked) > 1:
+                    second = ranked[1]
+                    second_runner_up = ranked[2].score if len(ranked) > 2 else 0.0
+                    second_margin = second.score - second_runner_up
+                    if second.score >= self.config.min_score:
+                        if second_runner_up > 0 and second_margin < self.config.min_margin:
+                            return ClassificationStatus.CONFLICT, self.config.conflict_dir_name, second.score, second_runner_up, second.evidence
+                        return ClassificationStatus.SUBJECT, second.subject, second.score, second_runner_up, second.evidence
+                return ClassificationStatus.UNKNOWN, self.config.unknown_dir_name, top.score, runner_up_score, top.evidence
+            # Điểm đủ → phân loại là Đề thi, bất kể môn học nào cũng nhường
+            return ClassificationStatus.SUBJECT, "De_thi", top.score, runner_up_score, top.evidence
+
+        # Nếu De_thi là runner-up với điểm đủ ngưỡng nhưng top là môn học → ưu tiên môn học
+        # (tránh nhầm bài luyện tập có từ "đề thi" vào De_thi)
+
         if score_result.negative_score > top.score and score_result.negative_score >= self.config.min_score:
             return (
                 ClassificationStatus.NON_SUBJECT,
@@ -236,5 +257,8 @@ class DocumentClassifier:
         if top.score < self.config.min_score:
             return ClassificationStatus.UNKNOWN, self.config.unknown_dir_name, top.score, runner_up_score, top.evidence
         if runner_up_score > 0 and margin < self.config.min_margin:
+            # Kiểm tra xem runner_up có phải De_thi không → nếu có thì bỏ qua conflict
+            if len(ranked) > 1 and ranked[1].subject == "De_thi":
+                return ClassificationStatus.SUBJECT, top.subject, top.score, runner_up_score, top.evidence
             return ClassificationStatus.CONFLICT, self.config.conflict_dir_name, top.score, runner_up_score, top.evidence
         return ClassificationStatus.SUBJECT, top.subject, top.score, runner_up_score, top.evidence

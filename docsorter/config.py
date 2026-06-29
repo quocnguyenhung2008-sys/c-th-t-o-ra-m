@@ -16,6 +16,7 @@ class ClassificationConfig:
     unknown_dir_name: str = "_Khong_xac_dinh"
     non_subject_dir_name: str = "_Khong_phai_mon_hoc"
     conflict_dir_name: str = "_Can_kiem_tra"
+    de_thi_dir_name: str = "De_thi"
     min_score: float = 8.0
     min_margin: float = 3.0
     filename_weight_multiplier: float = 2.5
@@ -30,6 +31,7 @@ class ClassificationConfig:
     retry_unknown_with_ocr: bool = True
     ocr_backend: str = "none"
     dry_run: bool = False
+    report_on_dry_run: bool = False   # Xuất báo cáo ngay cả khi --dry-run
     copy: bool = False
     overwrite: bool = False
     recursive: bool = False
@@ -37,3 +39,5 @@ class ClassificationConfig:
     include_docx: bool = True
     include_other: bool = False
     report_name: str = "classification_report.csv"
+    # Ngưỡng điểm để xác định Đề thi — giúp phân biệt với tài liệu học bình thường
+    de_thi_min_score: float = 25.0

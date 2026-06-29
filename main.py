@@ -81,6 +81,14 @@ def build_parser() -> argparse.ArgumentParser:
         help="Loai mot mon khoi ket qua, vi du --exclude-subject Dia_ly. Co the dung nhieu lan.",
     )
     parser.add_argument("--report-name", default="classification_report.csv", help="Ten file bao cao CSV.")
+<<<<<<< HEAD
+=======
+    parser.add_argument(
+        "--report-on-dry-run",
+        action="store_true",
+        help="Xuat bao cao CSV ngay ca khi --dry-run bat (mac dinh: chi in ra man hinh).",
+    )
+>>>>>>> 2aae1bc (Add advanced filename matcher and tests for document classification)
 
     # === macOS / Apple Silicon optimization ===
     _default_workers = max(1, (os.cpu_count() or 4) - 1)
@@ -141,6 +149,7 @@ def config_from_args(args: argparse.Namespace) -> ClassificationConfig:
         ocr_backend=args.ocr_backend,
         excluded_subjects=excluded_subjects,
         report_name=args.report_name,
+        report_on_dry_run=args.report_on_dry_run,
     )
 
 
