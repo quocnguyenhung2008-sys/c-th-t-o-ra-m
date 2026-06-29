@@ -81,14 +81,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="Loai mot mon khoi ket qua, vi du --exclude-subject Dia_ly. Co the dung nhieu lan.",
     )
     parser.add_argument("--report-name", default="classification_report.csv", help="Ten file bao cao CSV.")
-<<<<<<< HEAD
-=======
     parser.add_argument(
         "--report-on-dry-run",
         action="store_true",
         help="Xuat bao cao CSV ngay ca khi --dry-run bat (mac dinh: chi in ra man hinh).",
     )
->>>>>>> 2aae1bc (Add advanced filename matcher and tests for document classification)
 
     # === macOS / Apple Silicon optimization ===
     _default_workers = max(1, (os.cpu_count() or 4) - 1)
@@ -241,7 +238,9 @@ def main() -> int:
 
     # ── Báo cáo kết quả ──────────────────────────────────────────────────────
     report_path = output_dir / config.report_name
-    if not config.dry_run:
+    should_write = not config.dry_run or config.report_on_dry_run
+    if should_write:
+        output_dir.mkdir(parents=True, exist_ok=True)
         write_report(report_path, rows)
 
     # Thống kê phân loại
@@ -252,13 +251,18 @@ def main() -> int:
         by_status[key] = by_status.get(key, 0) + 1
 
     print(f"\n{'─'*50}")
-    print(f"  Hoàn thành: {total} file(s) trong {elapsed:.1f}s "
-          f"({total/elapsed:.1f} file/s)" if elapsed > 0 else f"  Hoàn thành: {total} file(s)")
-    print(f"  Kết quả:")
+    if elapsed > 0:
+        print(f"  Hoàn thành: {total} file(s) trong {elapsed:.1f}s ({total/elapsed:.1f} file/s)")
+    else:
+        print(f"  Hoàn thành: {total} file(s)")
+    if config.dry_run:
+        print("  [dry-run] Không di chuyển/sao chép file.")
+    print("  Kết quả:")
     for label, count in sorted(by_status.items(), key=lambda x: -x[1]):
         print(f"    {label}: {count}")
-    if not config.dry_run:
-        print(f"  Báo cáo: {report_path}")
+    if should_write:
+        mode_note = " (dry-run mô phỏng)" if config.dry_run else ""
+        print(f"  Báo cáo{mode_note}: {report_path}")
     print(f"{'─'*50}")
     return 0
 
